@@ -1,76 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>JIDAPA PANKAM | AI Engineer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #0d1b2a;
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
-        section {
-            padding: 40px;
-            max-width: 900px;
-            margin: auto;
-        }
-        h2 {
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
-        }
-        .project {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-        img {
-            max-width: 100%;
-            border-radius: 6px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<header>
-    <h1>JIDAPA PANKAM</h1>
-    <p>AI & Industrial Automation Engineer</p>
-</header>
-
-<section>
-    <h2>About Me</h2>
-    <p>Hi, it's me Aum. I am a Computer Engineering student with hands-on experience in AI-based object detection, dashboard development, and industrial automation systems.</p>
-</section>
-
-<section>
-    <h2>Featured Projects</h2>
-
-    <div class="project">
-        <h3>Industrial Object Detection System</h3>
-        <img src="CiRA_CORE_dashboard.jpg" alt="Project Screenshot">
-        <p>Machine Learning-based system for product counting and anomaly detection in manufacturing.</p>
-    </div>
-
-    <div class="project">
-        <h3>Manufacturing Dashboard Monitoring</h3>
-        <img src="grafana_dashboard.jpg" alt="Dashboard Screenshot">
-        <p>Real-time production analytics dashboard using Grafana and SQL Server.</p>
-    </div>
-
-</section>
-
-<section>
-    <h2>Contact</h2>
-    <p>Email: jidapa.pankam1@gmail.com</p>
-    <p>GitHub: github.com/jidapa21</p>
-</section>
-
+    <header>
+        <div class="hero">
+            <h1>Welcome to My Portfolio</h1>
+            <p>I am an Industrial AI Engineer | Your partner in innovation</p>
+        </div>
+    </header>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am passionate about utilizing artificial intelligence to optimize industrial processes.</p>
+    </section>
+    <section id="experience">
+        <h2>Work Experience</h2>
+        <ul>
+            <li><strong>AI Engineer</strong> at XYZ Corp (2024 - Present)</li>
+            <li><strong>Data Analyst</strong> at ABC Inc (2022 - 2024)</li>
+        </ul>
+    </section>
+    <section id="portfolio">
+        <h2>Project Portfolio</h2>
+        <div class="projects">
+            <div class="project"><h3>Project 1</h3><p>Description of Project 1.</p></div>
+            <div class="project"><h3>Project 2</h3><p>Description of Project 2.</p></div>
+        </div>
+    </section>
+    <section id="activities">
+        <h2>Activities</h2>
+        <ul>
+            <li>Speaker at AI Summit 2025</li>
+            <li>Workshop Organizer on AI Ethics</li>
+        </ul>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2026 jidapa21. All rights reserved.</p>
+    </footer>
 </body>
 </html>
+
+/* styles.css */
+body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; color: #333; }
+header { background-color: #f0f0f0; padding: 50px; text-align: center; }
+.hero { background: url('hero-image.jpg') no-repeat center center; height: 500px; color: white; }
+#about, #experience, #portfolio, #activities, #contact { padding: 20px; margin: 20px; background-color: #ffffff; border-radius: 8px; }
+footer { text-align: center; background-color: #f0f0f0; padding: 20px; }
