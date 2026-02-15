@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ML Object Detection System — Jidapa Pankam</title>
+  <meta name="description" content="Real-time ML-based object detection system for manufacturing quality assurance." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════ HEADER ═══════════════ -->
+  <header class="site-header">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">JP</div>
+      <span>Jidapa Pankam</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ═══════════════ PROJECT HERO ═══════════════ -->
+  <div class="project-hero">
+    <div class="project-hero-bg">
+      <img src="images/object-detection.jpg" alt="Object Detection"
+           onerror="this.style.display='none';" />
+      <div class="project-hero-placeholder"></div>
+    </div>
+    <div class="project-hero-content">
+      <a href="index.html" class="back-btn">← Back to Portfolio</a>
+      <span class="project-hero-tag">// AI · Computer Vision · Machine Learning</span>
+      <h1 class="project-hero-title">ML Object Detection System</h1>
+      <p class="project-hero-subtitle">
+        A real-time object detection pipeline built for industrial quality assurance —
+        identifying defects and anomalies on manufacturing lines with high confidence.
+      </p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ PROJECT CONTENT ═══════════════ -->
+  <div class="project-content">
+    <div class="project-layout">
+
+      <!-- Main Content -->
+      <main class="project-main">
+
+        <div class="proj-section">
+          <span class="proj-section-label">Overview</span>
+          <h2 class="proj-section-title">Project Overview</h2>
+          <p>
+            This project delivers a machine learning–powered object detection system designed for real-time quality assurance in manufacturing environments. Deployed during my internship at The Nawaloha Industry Co., Ltd., the system identifies product defects, misalignments, and anomalies directly on the production line.
+          </p>
+          <p>
+            The pipeline integrates computer vision models with industrial camera hardware, enabling automated visual inspection that replaces time-consuming manual checks.
+          </p>
+        </div>
+
+        <div class="proj-section">
+          <span class="proj-section-label">Problem Statement</span>
+          <h2 class="proj-section-title">The Problem</h2>
+          <p>
+            Manual quality inspection in manufacturing is slow, inconsistent, and prone to human error — particularly for high-throughput production lines where inspectors must evaluate hundreds of components per hour. Missed defects result in costly downstream failures and returns.
+          </p>
+          <p>
+            The existing inspection process lacked automation and real-time feedback, causing bottlenecks and quality inconsistencies across production batches.
+          </p>
+        </div>
+
+        <div class="proj-section">
+          <span class="proj-section-label">Solution Approach</span>
+          <h2 class="proj-section-title">How I Solved It</h2>
+          <p>
+            I implemented a trained object detection model (based on YOLO architecture) tuned specifically for the factory's defect categories. Key engineering work involved:
+          </p>
+          <ul class="proj-feature-list">
+            <li>Collecting and annotating a dataset of manufacturing defect images specific to the production environment</li>
+            <li>Training and fine-tuning the detection model with transfer learning from pre-trained weights</li>
+            <li>Iteratively tuning confidence thresholds to minimize false positives while catching critical defects</li>
+            <li>Building a real-time inference pipeline integrated with industrial cameras via Python</li>
+            <li>Conducting systematic AI validation to confirm model reliability before production deployment</li>
+          </ul>
+        </div>
+
+        <div class="proj-section">
+          <span class="proj-section-label">Key Features</span>
+          <h2 class="proj-section-title">Key Features</h2>
+          <ul class="proj-feature-list">
+            <li>Real-time object detection running on live camera feeds from the production floor</li>
+            <li>Configurable confidence thresholds for different defect severity levels</li>
+            <li>Automated flagging and logging of detected anomalies with timestamps</li>
+            <li>Multi-class detection covering multiple defect categories simultaneously</li>
+            <li>Visual overlay output for operator review and manual override capability</li>
+            <li>Performance metrics dashboard showing detection accuracy over time</li>
+          </ul>
+        </div>
+
+        <div class="proj-section">
+          <span class="proj-section-label">Result / Impact</span>
+          <h2 class="proj-section-title">Results &amp; Impact</h2>
+          <div class="result-highlight">
+            <p>
+              The deployed system achieved <strong>significant improvement in defect detection consistency</strong> over manual inspection. Automated alerts reduced the time between defect occurrence and correction. The confidence threshold tuning process became a reusable methodology for future model deployments at the facility. Validation procedures were documented and adopted as a standard QA protocol for AI-assisted inspection at the company.
+            </p>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Sidebar -->
+      <aside class="project-sidebar">
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Technical Stack</div>
+          <ul class="tech-stack-list">
+            <li>Python 3.x</li>
+            <li>YOLO (Object Detection)</li>
+            <li>OpenCV</li>
+            <li>NumPy / PyTorch</li>
+            <li>Industrial Cameras</li>
+            <li>REST API Integration</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Impact Metrics</div>
+          <div class="impact-stat">
+            <span class="impact-stat-value">Real-Time</span>
+            <span class="impact-stat-label">Live inference on production feeds</span>
+          </div>
+          <div class="impact-stat">
+            <span class="impact-stat-value">Multi-Class</span>
+            <span class="impact-stat-label">Multiple defect categories detected</span>
+          </div>
+          <div class="impact-stat">
+            <span class="impact-stat-value">Automated</span>
+            <span class="impact-stat-label">QA logging &amp; alerting</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Project Details</div>
+          <ul class="tech-stack-list">
+            <li>Industrial Automation Internship</li>
+            <li>The Nawaloha Industry Co., Ltd.</li>
+            <li>Oct 2025 – Jan 2026</li>
+          </ul>
+        </div>
+
+        <a href="index.html" class="sidebar-back-btn">← Back to All Projects</a>
+
+      </aside>
+    </div>
+  </div>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="site-footer">
+    <p class="footer-text">
+      © 2026 Jidapa Pankam — Deployed on <span>GitHub Pages</span>
+    </p>
+  </footer>
+
+</body>
+</html>
