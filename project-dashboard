@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Industrial Monitoring Dashboard — Jidapa Pankam</title>
+  <meta name="description" content="Real-time Grafana dashboards for industrial equipment monitoring with MQTT data pipelines." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════ HEADER ═══════════════ -->
+  <header class="site-header">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">JP</div>
+      <span>Jidapa Pankam</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ═══════════════ PROJECT HERO ═══════════════ -->
+  <div class="project-hero">
+    <div class="project-hero-bg">
+      <img src="images/dashboard.jpg" alt="Industrial Dashboard"
+           onerror="this.style.display='none';" />
+      <div class="project-hero-placeholder"></div>
+    </div>
+    <div class="project-hero-content">
+      <a href="index.html" class="back-btn">← Back to Portfolio</a>
+      <span class="project-hero-tag">// Grafana · MQTT · Node-RED · Industrial IoT</span>
+      <h1 class="project-hero-title">Industrial Monitoring Dashboard</h1>
+      <p class="project-hero-subtitle">
+        Real-time Grafana dashboards for monitoring industrial equipment, integrating live sensor
+        data via MQTT and Node-RED pipelines to give operators instant visibility into factory floor operations.
+      </p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ PROJECT CONTENT ═══════════════ -->
+  <div class="project-content">
+    <div class="project-layout">
+
+      <!-- Main Content -->
+      <main class="project-main">
+
+        <div class="proj-section">
+          <span class="proj-section-label">Overview</span>
+          <h2 class="proj-section-title">Project Overview</h2>
+          <p>
+            This project involved designing and deploying a comprehensive industrial monitoring dashboard using Grafana, enabling real-time visualization of factory floor data. The system aggregates sensor data from various industrial equipment and presents it through intuitive, operator-friendly interfaces.
+          </p>
+          <p>
+            The dashboards were built to serve multiple stakeholder groups — from floor operators who need live equipment status to management who require aggregated production metrics and KPIs.
+          </p>
+        </div>
+
+        <div class="proj-section">
+          <span class="proj-section-label">Problem Statement</span>
+          <h2 class="proj-section-title">The Problem</h2>
+          <p>
+            The manufacturing facility lacked centralized, real-time visibility into equipment health and production metrics. Data from various machines and sensors existed in silos, making it difficult for operators and supervisors to detect issues early or understand production performance at a glance.
+          </p>
+          <p>
+            Maintenance decisions were reactive rather than proactive, leading to unplanned downtime. There was no unified view of the production pipeline across different machine groups or process stages.
+          </p>
+        </div>
+
+        <div class="proj-section">
+          <span class="proj-section-label">Solution Approach</span>
+          <h2 class="proj-section-title">How I Solved It</h2>
+          <p>
+            I designed a layered data architecture connecting industrial sensors to a Grafana visualization layer:
+          </p>
+          <ul class="proj-feature-list">
+            <li>Configured MQTT broker to receive telemetry from industrial sensors and PLCs in real time</li>
+            <li>Built Node-RED flows to parse, transform, and route incoming sensor data to the time-series database</li>
+            <li>Designed Grafana dashboards with multiple panels — gauges, time-series charts, alert indicators, and status grids</li>
+            <li>Created role-specific dashboard views: operator-level, supervisor-level, and management-level</li>
+            <li>Implemented alert rules and threshold notifications for critical equipment parameters</li>
+            <li>Documented the data pipeline architecture for the engineering team</li>
+          </ul>
+        </div>
+
+        <div class="proj-section">
+          <span class="proj-section-label">Key Features</span>
+          <h2 class="proj-section-title">Key Features</h2>
+          <ul class="proj-feature-list">
+            <li>Live equipment status panels with color-coded health indicators</li>
+            <li>Historical trend charts for temperature, pressure, speed, and other critical parameters</li>
+            <li>Automated alerting via Grafana Alertmanager when thresholds are exceeded</li>
+            <li>Node-RED flows for data transformation and multi-source aggregation</li>
+            <li>MQTT-based data ingestion supporting high-frequency sensor polling</li>
+            <li>Drill-down capability from fleet overview to individual machine metrics</li>
+            <li>Shift-level and daily production summary panels</li>
+          </ul>
+        </div>
+
+        <div class="proj-section">
+          <span class="proj-section-label">Result / Impact</span>
+          <h2 class="proj-section-title">Results &amp; Impact</h2>
+          <div class="result-highlight">
+            <p>
+              The monitoring dashboard gave the facility its first unified, real-time view of production operations. Operators gained <strong>immediate visibility into equipment anomalies</strong>, enabling faster response to issues. The pipeline architecture became a foundation for future IoT integrations at the facility. Management-level dashboards enabled <strong>data-driven production planning</strong> with historical trend analysis readily available.
+            </p>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Sidebar -->
+      <aside class="project-sidebar">
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Technical Stack</div>
+          <ul class="tech-stack-list">
+            <li>Grafana</li>
+            <li>MQTT Protocol</li>
+            <li>Node-RED</li>
+            <li>InfluxDB / Time-Series DB</li>
+            <li>Industrial IoT Sensors</li>
+            <li>Python (data scripts)</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Impact Metrics</div>
+          <div class="impact-stat">
+            <span class="impact-stat-value">Live</span>
+            <span class="impact-stat-label">Real-time sensor data ingestion</span>
+          </div>
+          <div class="impact-stat">
+            <span class="impact-stat-value">Multi-Role</span>
+            <span class="impact-stat-label">Operator, supervisor &amp; mgmt views</span>
+          </div>
+          <div class="impact-stat">
+            <span class="impact-stat-value">Alerting</span>
+            <span class="impact-stat-label">Automated threshold notifications</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Project Details</div>
+          <ul class="tech-stack-list">
+            <li>Industrial Automation Internship</li>
+            <li>The Nawaloha Industry Co., Ltd.</li>
+            <li>Oct 2025 – Jan 2026</li>
+          </ul>
+        </div>
+
+        <a href="index.html" class="sidebar-back-btn">← Back to All Projects</a>
+
+      </aside>
+    </div>
+  </div>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="site-footer">
+    <p class="footer-text">
+      © 2026 Jidapa Pankam — Deployed on <span>GitHub Pages</span>
+    </p>
+  </footer>
+
+</body>
+</html>
