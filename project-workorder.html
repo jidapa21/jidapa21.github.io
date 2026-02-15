@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work Order Management App — Jidapa Pankam</title>
+  <meta name="description" content="End-to-end work order management application for manufacturing workflow automation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════ HEADER ═══════════════ -->
+  <header class="site-header">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">JP</div>
+      <span>Jidapa Pankam</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ═══════════════ PROJECT HERO ═══════════════ -->
+  <div class="project-hero">
+    <div class="project-hero-bg">
+      <img src="images/workorder.jpg" alt="Work Order Management"
+           onerror="this.style.display='none';" />
+      <div class="project-hero-placeholder"></div>
+    </div>
+    <div class="project-hero-content">
+      <a href="index.html" class="back-btn">← Back to Portfolio</a>
+      <span class="project-hero-tag">// C# · SQL Server · REST API · Workflow Automation</span>
+      <h1 class="project-hero-title">Work Order Management Application</h1>
+      <p class="project-hero-subtitle">
+        An end-to-end web application that digitalizes and streamlines manufacturing work orders —
+        from creation and assignment through execution, tracking, and reporting.
+      </p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ PROJECT CONTENT ═══════════════ -->
+  <div class="project-content">
+    <div class="project-layout">
+
+      <!-- Main Content -->
+      <main class="project-main">
+
+        <div class="proj-section">
+          <span class="proj-section-label">Overview</span>
+          <h2 class="proj-section-title">Project Overview</h2>
+          <p>
+            This project is a full-stack work order management system developed for The Nawaloha Industry Co., Ltd. to replace paper-based and disconnected workflows. The application digitalizes the complete lifecycle of a manufacturing work order — from supervisor creation and technician assignment to task execution, sign-off, and reporting.
+          </p>
+          <p>
+            Built with C# and SQL Server Express, the system provides a structured, auditable trail of all maintenance and production tasks while giving managers real-time visibility into open workloads.
+          </p>
+        </div>
+
+        <div class="proj-section">
+          <span class="proj-section-label">Problem Statement</span>
+          <h2 class="proj-section-title">The Problem</h2>
+          <p>
+            Work orders at the facility were managed through paper forms and verbal communication, creating several pain points: lost records, unclear ownership of tasks, no visibility into WO status for supervisors, and difficulty generating completion reports for compliance.
+          </p>
+          <p>
+            Technicians often received conflicting priorities, and there was no centralized system to track time-to-completion or identify recurring equipment issues across work order history.
+          </p>
+        </div>
+
+        <div class="proj-section">
+          <span class="proj-section-label">Solution Approach</span>
+          <h2 class="proj-section-title">How I Solved It</h2>
+          <p>
+            I designed and developed the application using an Agile/Scrum methodology, iterating through sprints with regular feedback from facility supervisors and technicians:
+          </p>
+          <ul class="proj-feature-list">
+            <li>Designed a normalized relational database schema in SQL Server Express to model WO lifecycle stages, users, equipment, and task history</li>
+            <li>Built a RESTful API backend in C# exposing endpoints for CRUD operations on work orders, assignments, and status updates</li>
+            <li>Implemented role-based access control for Supervisors, Technicians, and Administrators</li>
+            <li>Created structured forms for WO creation with equipment lookup, priority levels, and due date assignment</li>
+            <li>Built a dashboard showing open WOs by priority, technician workload distribution, and overdue items</li>
+            <li>Generated PDF/export summaries for management reporting and compliance records</li>
+          </ul>
+        </div>
+
+        <div class="proj-section">
+          <span class="proj-section-label">Key Features</span>
+          <h2 class="proj-section-title">Key Features</h2>
+          <ul class="proj-feature-list">
+            <li>Full work order lifecycle: Create → Assign → In Progress → Review → Close</li>
+            <li>Role-based access control with Supervisor, Technician, and Admin roles</li>
+            <li>Equipment registry with maintenance history linkage</li>
+            <li>Priority classification (Critical, High, Medium, Low) with visual indicators</li>
+            <li>Real-time status dashboard with overdue alert highlighting</li>
+            <li>Digital sign-off and completion notes for each WO stage</li>
+            <li>Reporting exports for compliance and performance review</li>
+          </ul>
+        </div>
+
+        <div class="proj-section">
+          <span class="proj-section-label">Result / Impact</span>
+          <h2 class="proj-section-title">Results &amp; Impact</h2>
+          <div class="result-highlight">
+            <p>
+              The application <strong>eliminated paper-based work order handling</strong> at the facility, creating a fully auditable digital record of all maintenance and production tasks. Supervisors gained <strong>real-time visibility</strong> into task status and technician workloads for the first time. The system's history database enabled analysis of recurring equipment issues, supporting <strong>preventive maintenance planning</strong>.
+            </p>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Sidebar -->
+      <aside class="project-sidebar">
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Technical Stack</div>
+          <ul class="tech-stack-list">
+            <li>C# (.NET)</li>
+            <li>SQL Server Express</li>
+            <li>REST API</li>
+            <li>Role-Based Auth</li>
+            <li>Agile / Scrum</li>
+            <li>HTML / CSS / JS</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Impact Metrics</div>
+          <div class="impact-stat">
+            <span class="impact-stat-value">Digital</span>
+            <span class="impact-stat-label">Eliminated paper WO process</span>
+          </div>
+          <div class="impact-stat">
+            <span class="impact-stat-value">3 Roles</span>
+            <span class="impact-stat-label">Admin, Supervisor, Technician</span>
+          </div>
+          <div class="impact-stat">
+            <span class="impact-stat-value">Full Audit</span>
+            <span class="impact-stat-label">Complete task history &amp; reporting</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Project Details</div>
+          <ul class="tech-stack-list">
+            <li>Industrial Automation Internship</li>
+            <li>The Nawaloha Industry Co., Ltd.</li>
+            <li>Oct 2025 – Jan 2026</li>
+          </ul>
+        </div>
+
+        <a href="index.html" class="sidebar-back-btn">← Back to All Projects</a>
+
+      </aside>
+    </div>
+  </div>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="site-footer">
+    <p class="footer-text">
+      © 2026 Jidapa Pankam — Deployed on <span>GitHub Pages</span>
+    </p>
+  </footer>
+
+</body>
+</html>
