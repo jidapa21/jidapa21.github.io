@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Co-op Education Platform — Jidapa Pankam</title>
+  <meta name="description" content="Cooperative education management platform connecting students, supervisors, and academic advisors." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════ HEADER ═══════════════ -->
+  <header class="site-header">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">JP</div>
+      <span>Jidapa Pankam</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ═══════════════ PROJECT HERO ═══════════════ -->
+  <div class="project-hero">
+    <div class="project-hero-bg">
+      <img src="images/coop.jpg" alt="Co-op Platform"
+           onerror="this.style.display='none';" />
+      <div class="project-hero-placeholder"></div>
+    </div>
+    <div class="project-hero-content">
+      <a href="index.html" class="back-btn">← Back to Portfolio</a>
+      <span class="project-hero-tag">// TypeScript · Go · SQL · Web Application</span>
+      <h1 class="project-hero-title">Co-op Education Platform</h1>
+      <p class="project-hero-subtitle">
+        A full-stack cooperative education management system that connects students,
+        company supervisors, and university advisors through a unified placement and
+        evaluation workflow.
+      </p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ PROJECT CONTENT ═══════════════ -->
+  <div class="project-content">
+    <div class="project-layout">
+
+      <!-- Main Content -->
+      <main class="project-main">
+
+        <div class="proj-section">
+          <span class="proj-section-label">Overview</span>
+          <h2 class="proj-section-title">Project Overview</h2>
+          <p>
+            The Co-op Education Platform is a comprehensive web application developed to support university cooperative education programs. It digitalizes the entire co-op process — from students browsing and applying for placements, to supervisors managing student progress, to faculty advisors tracking academic requirements and outcomes.
+          </p>
+          <p>
+            Built with TypeScript on the frontend and Go on the backend, the system handles multi-role workflows with different access levels and responsibilities for each participant type.
+          </p>
+        </div>
+
+        <div class="proj-section">
+          <span class="proj-section-label">Problem Statement</span>
+          <h2 class="proj-section-title">The Problem</h2>
+          <p>
+            Co-op education programs typically involve three-way coordination between students, host companies, and universities — a process historically managed through emails, spreadsheets, and manual document submissions. This leads to:
+          </p>
+          <ul class="proj-feature-list">
+            <li>Difficulty tracking which students are placed, where, and at what stage of their co-op</li>
+            <li>Inconsistent evaluation processes across different company supervisors</li>
+            <li>Faculty advisors lacking visibility into student progress mid-placement</li>
+            <li>Students struggling to find and apply for suitable placements</li>
+            <li>Missed deadlines for reports, evaluations, and sign-offs</li>
+          </ul>
+        </div>
+
+        <div class="proj-section">
+          <span class="proj-section-label">Solution Approach</span>
+          <h2 class="proj-section-title">How I Solved It</h2>
+          <p>
+            I contributed to building a multi-role platform with distinct workflows for each participant type:
+          </p>
+          <ul class="proj-feature-list">
+            <li>Designed a RESTful API backend in Go with clean separation of concerns and role-aware endpoints</li>
+            <li>Built a TypeScript/JavaScript frontend providing role-specific dashboards and workflows</li>
+            <li>Modeled the relational database in SQL to represent placements, evaluations, timelines, and document submissions</li>
+            <li>Implemented student-facing placement browsing, application, and status tracking</li>
+            <li>Created supervisor evaluation forms and mid-term/final assessment workflows</li>
+            <li>Built faculty advisor panels for monitoring all active students and placement metrics</li>
+            <li>Developed notification and deadline reminder systems for key milestones</li>
+          </ul>
+        </div>
+
+        <div class="proj-section">
+          <span class="proj-section-label">Key Features</span>
+          <h2 class="proj-section-title">Key Features</h2>
+          <ul class="proj-feature-list">
+            <li>Three-role system: Student, Company Supervisor, Faculty Advisor</li>
+            <li>Placement listing with company profiles, role descriptions, and application management</li>
+            <li>Structured evaluation forms with rubric-based assessment criteria</li>
+            <li>Document submission portal for student reports and supervisor sign-offs</li>
+            <li>Timeline and deadline tracking with automated notification reminders</li>
+            <li>Faculty dashboard with aggregate placement statistics and student status overview</li>
+            <li>Placement history and GPA/performance correlation reporting</li>
+          </ul>
+        </div>
+
+        <div class="proj-section">
+          <span class="proj-section-label">Result / Impact</span>
+          <h2 class="proj-section-title">Results &amp; Impact</h2>
+          <div class="result-highlight">
+            <p>
+              The platform <strong>unified the co-op process across all three stakeholder groups</strong> into a single digital workflow, eliminating the coordination overhead of email chains and manual tracking. Students experienced a <strong>streamlined application and placement process</strong>, while faculty advisors gained full visibility into placement outcomes and student performance metrics for <strong>program improvement planning</strong>.
+            </p>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Sidebar -->
+      <aside class="project-sidebar">
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Technical Stack</div>
+          <ul class="tech-stack-list">
+            <li>TypeScript</li>
+            <li>Go (Golang)</li>
+            <li>SQL (Relational DB)</li>
+            <li>REST API</li>
+            <li>Multi-Role Auth</li>
+            <li>JavaScript / HTML / CSS</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Impact Metrics</div>
+          <div class="impact-stat">
+            <span class="impact-stat-value">3 Roles</span>
+            <span class="impact-stat-label">Student, Supervisor, Advisor</span>
+          </div>
+          <div class="impact-stat">
+            <span class="impact-stat-value">End-to-End</span>
+            <span class="impact-stat-label">Full co-op lifecycle digitalized</span>
+          </div>
+          <div class="impact-stat">
+            <span class="impact-stat-value">Unified</span>
+            <span class="impact-stat-label">Single platform for all stakeholders</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Project Details</div>
+          <ul class="tech-stack-list">
+            <li>University Capstone Project</li>
+            <li>Suranaree University of Technology</li>
+            <li>Computer Engineering Program</li>
+          </ul>
+        </div>
+
+        <a href="index.html" class="sidebar-back-btn">← Back to All Projects</a>
+
+      </aside>
+    </div>
+  </div>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="site-footer">
+    <p class="footer-text">
+      © 2026 Jidapa Pankam — Deployed on <span>GitHub Pages</span>
+    </p>
+  </footer>
+
+</body>
+</html>
