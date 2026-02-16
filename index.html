@@ -49,10 +49,27 @@
   .section-title { font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--ink); }
   .section-divider { width: 48px; height: 3px; background: var(--blue); border-radius: 2px; margin-top: 12px; }
 
-  /* SKILLS */
-  .skill-group { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 24px; transition: box-shadow 0.2s, border-color 0.2s; }
-  .skill-group:hover { box-shadow: 0 8px 32px rgba(74,144,217,0.1); border-color: var(--blue-mid); }
-  .skill-tag { display: inline-block; background: var(--blue-light); color: #2563EB; font-size: 0.78rem; font-weight: 500; border-radius: 6px; padding: 4px 10px; margin: 3px; }
+  /* SKILLS TABS */
+  .skill-tab {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--bg); border: 1.5px solid var(--line);
+    border-radius: 999px; padding: 8px 18px;
+    font-size: 0.8rem; font-weight: 600; color: var(--ink-soft);
+    cursor: pointer; transition: all 0.2s; flex-shrink: 0;
+  }
+  .skill-tab:hover { border-color: var(--blue-mid); color: var(--blue); }
+  .skill-tab.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .tab-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: 0.5; flex-shrink: 0; }
+  .skill-tab.active .tab-dot { opacity: 1; }
+
+  /* SKILL PROGRESS ROWS */
+  .skill-row { display: flex; align-items: center; gap: 12px; }
+  .skill-row-name { font-size: 0.85rem; font-weight: 500; color: var(--ink); min-width: 140px; flex-shrink: 0; }
+  .skill-bar { flex: 1; height: 6px; background: var(--line); border-radius: 999px; overflow: hidden; }
+  .skill-fill { height: 100%; background: linear-gradient(90deg, var(--blue) 0%, #7BB8EA 100%); border-radius: 999px; transition: width 0.6s ease; }
+
+  /* SKILL TAG (concepts) */
+  .skill-tag { display: inline-block; background: var(--blue-light); color: #2563EB; font-size: 0.78rem; font-weight: 500; border-radius: 6px; padding: 6px 12px; margin: 3px; }
 
   /* TIMELINE */
   .timeline-dot { width: 14px; height: 14px; background: var(--blue); border: 3px solid var(--white); box-shadow: 0 0 0 2px var(--blue); border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
@@ -124,7 +141,7 @@
       <a href="#education" class="nav-link">Education</a>
       <a href="#contact" class="nav-link">Contact</a>
     </div>
-    <a href="mailto:jidapa.pankam1@gmail.com" class="hidden md:inline-flex items-center gap-2 bg-[#4A90D9] text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-[#3A7BC8] transition-colors">
+    <a href="/cdn-cgi/l/email-protection#99f3f0fdf8e9f8b7e9f8f7f2f8f4a8d9fef4f8f0f5b7faf6f4" class="hidden md:inline-flex items-center gap-2 bg-[#4A90D9] text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-[#3A7BC8] transition-colors">
       Hire Me ↗
     </a>
     <!-- Mobile hamburger -->
@@ -158,9 +175,9 @@
         Information Technology Graduate specializing in industrial IT systems, workflow automation, IoT integration, and real-time monitoring dashboards.
       </p>
       <div class="flex flex-wrap gap-3 justify-center md:justify-start mb-8">
-        <a href="mailto:jidapa.pankam1@gmail.com" class="contact-chip">
+        <a href="/cdn-cgi/l/email-protection#761c1f12170617580617181d171b4736111b171f1a5815191b" class="contact-chip">
           <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 5l8 5 8-5M2 5h16v11H2V5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-          jidapa.pankam1@gmail.com
+          <span class="__cf_email__" data-cfemail="563c3f32372637782637383d373b6716313b373f3a7835393b">[email&#160;protected]</span>
         </a>
         <a href="tel:0970306427" class="contact-chip">
           <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 2h2l1.5 4.5-1.8 1.1A11 11 0 0012.4 12l1.1-1.8L18 11.5v2A2.5 2.5 0 0115.5 16C8 16 4 9.8 4 4A2.5 2.5 0 016 1.5z" stroke="currentColor" stroke-width="1.6"/></svg>
@@ -188,7 +205,7 @@
     <div class="flex-shrink-0 flex justify-center">
       <div class="hero-img-ring">
         <div class="hero-img-placeholder">
-          <img src="/images/profile.png" alt="Jidapa Pankam"
+          <img src="/images/profile.jpg" alt="Jidapa Pankam"
             class="w-full h-full object-cover rounded-full"
             onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:260px;height:260px;border-radius:50%;background:linear-gradient(135deg,#EBF4FF,#B8D8F5);display:flex;align-items:center;justify-content:center;\'><svg width=\'90\' height=\'90\' viewBox=\'0 0 24 24\' fill=\'none\'><circle cx=\'12\' cy=\'8\' r=\'4\' stroke=\'#4A90D9\' stroke-width=\'1.5\'/><path d=\'M4 20c0-4 3.6-7 8-7s8 3 8 7\' stroke=\'#4A90D9\' stroke-width=\'1.5\' stroke-linecap=\'round\'/></svg></div>';">
         </div>
@@ -242,62 +259,90 @@
       <h2 class="section-title">Tools & Technologies</h2>
       <div class="section-divider"></div>
     </div>
-    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      <div class="skill-group reveal reveal-delay-1">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-9 h-9 rounded-lg bg-[#EBF4FF] flex items-center justify-content: center">
-            <svg class="mx-auto" width="18" height="18" viewBox="0 0 20 20" fill="#4A90D9"><path d="M10 2L2 7v6l8 5 8-5V7L10 2z"/></svg>
+
+    <!-- Tab buttons -->
+    <div class="mt-10 reveal reveal-delay-1">
+      <div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide" id="skillTabs" style="scrollbar-width:none;-ms-overflow-style:none;">
+        <button onclick="switchTab(0)" class="skill-tab active whitespace-nowrap" data-tab="0">
+          <span class="tab-dot"></span>Programming
+        </button>
+        <button onclick="switchTab(1)" class="skill-tab whitespace-nowrap" data-tab="1">
+          <span class="tab-dot"></span>Industrial
+        </button>
+        <button onclick="switchTab(2)" class="skill-tab whitespace-nowrap" data-tab="2">
+          <span class="tab-dot"></span>Database
+        </button>
+        <button onclick="switchTab(3)" class="skill-tab whitespace-nowrap" data-tab="3">
+          <span class="tab-dot"></span>Dev Tools
+        </button>
+        <button onclick="switchTab(4)" class="skill-tab whitespace-nowrap" data-tab="4">
+          <span class="tab-dot"></span>Concepts
+        </button>
+      </div>
+    </div>
+
+    <!-- Tab panels -->
+    <div class="mt-4 reveal reveal-delay-2">
+
+      <div class="skill-panel" data-panel="0">
+        <div class="bg-[#F8FAFE] border border-[#E2EBF4] rounded-2xl p-6">
+          <div class="grid gap-3">
+            <div class="skill-row"><span class="skill-row-name">Python</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+            <div class="skill-row"><span class="skill-row-name">JavaScript</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+            <div class="skill-row"><span class="skill-row-name">TypeScript</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+            <div class="skill-row"><span class="skill-row-name">SQL</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+            <div class="skill-row"><span class="skill-row-name">C / C++</span><div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div></div>
+            <div class="skill-row"><span class="skill-row-name">Go</span><div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div></div>
+            <div class="skill-row"><span class="skill-row-name">Java</span><div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div></div>
           </div>
-          <h3 class="font-semibold text-[#1A2332]" style="font-family:'DM Sans',sans-serif;">Programming</h3>
-        </div>
-        <div>
-          <span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span><span class="skill-tag">SQL</span><span class="skill-tag">C/C++</span><span class="skill-tag">Go</span><span class="skill-tag">Java</span>
         </div>
       </div>
-      <div class="skill-group reveal reveal-delay-2">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-9 h-9 rounded-lg bg-[#EBF4FF] flex items-center justify-content: center">
-            <svg class="mx-auto" width="18" height="18" viewBox="0 0 20 20" fill="#4A90D9"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M6 9h8M6 12h5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+
+      <div class="skill-panel hidden" data-panel="1">
+        <div class="bg-[#F8FAFE] border border-[#E2EBF4] rounded-2xl p-6">
+          <div class="grid gap-3">
+            <div class="skill-row"><span class="skill-row-name">CiRA CORE</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+            <div class="skill-row"><span class="skill-row-name">AppSheet</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+            <div class="skill-row"><span class="skill-row-name">Google Sheets</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+            <div class="skill-row"><span class="skill-row-name">Looker Studio</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+            <div class="skill-row"><span class="skill-row-name">Grafana</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+            <div class="skill-row"><span class="skill-row-name">MQTT</span><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
           </div>
-          <h3 class="font-semibold text-[#1A2332]" style="font-family:'DM Sans',sans-serif;">Industrial & Automation</h3>
-        </div>
-        <div>
-          <span class="skill-tag">CiRA CORE</span><span class="skill-tag">AppSheet</span><span class="skill-tag">Google Sheets</span><span class="skill-tag">Looker Studio</span><span class="skill-tag">Grafana</span><span class="skill-tag">MQTT</span>
         </div>
       </div>
-      <div class="skill-group reveal reveal-delay-3">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-9 h-9 rounded-lg bg-[#EBF4FF] flex items-center justify-content: center">
-            <svg class="mx-auto" width="18" height="18" viewBox="0 0 20 20" fill="#4A90D9"><ellipse cx="10" cy="7" rx="7" ry="3"/><path d="M3 7v6c0 1.66 3.13 3 7 3s7-1.34 7-3V7" stroke="white" stroke-width="1.2"/></svg>
+
+      <div class="skill-panel hidden" data-panel="2">
+        <div class="bg-[#F8FAFE] border border-[#E2EBF4] rounded-2xl p-6">
+          <div class="grid gap-3">
+            <div class="skill-row"><span class="skill-row-name">SQL Server Express</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+            <div class="skill-row"><span class="skill-row-name">REST API</span><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
           </div>
-          <h3 class="font-semibold text-[#1A2332]" style="font-family:'DM Sans',sans-serif;">Database & Backend</h3>
-        </div>
-        <div>
-          <span class="skill-tag">SQL Server Express</span><span class="skill-tag">REST API</span>
         </div>
       </div>
-      <div class="skill-group reveal reveal-delay-1">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-9 h-9 rounded-lg bg-[#EBF4FF] flex items-center justify-content: center">
-            <svg class="mx-auto" width="18" height="18" viewBox="0 0 20 20" fill="#4A90D9"><path d="M4 5h12M4 10h12M4 15h7"/></svg>
+
+      <div class="skill-panel hidden" data-panel="3">
+        <div class="bg-[#F8FAFE] border border-[#E2EBF4] rounded-2xl p-6">
+          <div class="grid gap-3">
+            <div class="skill-row"><span class="skill-row-name">GitHub</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+            <div class="skill-row"><span class="skill-row-name">Figma</span><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+            <div class="skill-row"><span class="skill-row-name">Postman</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
           </div>
-          <h3 class="font-semibold text-[#1A2332]" style="font-family:'DM Sans',sans-serif;">Developer Tools</h3>
-        </div>
-        <div>
-          <span class="skill-tag">GitHub</span><span class="skill-tag">Figma</span><span class="skill-tag">Postman</span>
         </div>
       </div>
-      <div class="skill-group reveal reveal-delay-2 sm:col-span-2 lg:col-span-2">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-9 h-9 rounded-lg bg-[#EBF4FF] flex items-center justify-content: center">
-            <svg class="mx-auto" width="18" height="18" viewBox="0 0 20 20" fill="#4A90D9"><path d="M3 10l3.5-3.5 3 3L14 5l3 3" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+
+      <div class="skill-panel hidden" data-panel="4">
+        <div class="bg-[#F8FAFE] border border-[#E2EBF4] rounded-2xl p-6">
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">Workflow Automation</span>
+            <span class="skill-tag">Smart Factory Systems</span>
+            <span class="skill-tag">Database Management</span>
+            <span class="skill-tag">Agile Development</span>
+            <span class="skill-tag">IoT Integration</span>
+            <span class="skill-tag">Real-time Dashboards</span>
           </div>
-          <h3 class="font-semibold text-[#1A2332]" style="font-family:'DM Sans',sans-serif;">Concepts & Methodologies</h3>
-        </div>
-        <div>
-          <span class="skill-tag">Workflow Automation</span><span class="skill-tag">Smart Factory Systems</span><span class="skill-tag">Database Management</span><span class="skill-tag">Agile Development</span><span class="skill-tag">IoT Integration</span><span class="skill-tag">Real-time Dashboards</span>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -472,13 +517,13 @@
       <p class="text-[#4A5568] mt-5 max-w-md mx-auto">I'm actively looking for new opportunities. Whether you have a question or just want to say hi — my inbox is always open!</p>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
-      <a href="mailto:jidapa.pankam1@gmail.com" class="contact-card reveal reveal-delay-1">
+      <a href="/cdn-cgi/l/email-protection#513b38353021307f21303f3a303c6011363c30383d7f323e3c" class="contact-card reveal reveal-delay-1">
         <div class="contact-icon-box">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 5l8 5 8-5M2 5h16v11H2V5z" stroke="#4A90D9" stroke-width="1.6" stroke-linejoin="round"/></svg>
         </div>
         <div>
           <div class="text-xs font-semibold uppercase tracking-wider text-[#4A5568] mb-0.5">Email</div>
-          <div class="text-sm text-[#1A2332] font-medium break-all">jidapa.pankam1@gmail.com</div>
+          <div class="text-sm text-[#1A2332] font-medium break-all"><span class="__cf_email__" data-cfemail="cea4a7aaafbeafe0beafa0a5afa3ff8ea9a3afa7a2e0ada1a3">[email&#160;protected]</span></div>
         </div>
       </a>
       <a href="tel:0970306427" class="contact-card reveal reveal-delay-2">
@@ -529,7 +574,7 @@
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ─── PROJECT DATA ───
 const projects = {
   woms: {
@@ -680,6 +725,16 @@ function toggleMobileMenu() {
 }
 function closeMobileMenu() {
   document.getElementById('mobileMenu').classList.add('hidden');
+}
+
+// ─── SKILL TABS ───
+function switchTab(index) {
+  document.querySelectorAll('.skill-tab').forEach((btn, i) => {
+    btn.classList.toggle('active', i === index);
+  });
+  document.querySelectorAll('.skill-panel').forEach((panel, i) => {
+    panel.classList.toggle('hidden', i !== index);
+  });
 }
 
 // ─── SCROLL REVEAL ───
