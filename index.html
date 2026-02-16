@@ -79,14 +79,24 @@
   .exp-bullet::before { content: '→'; color: var(--blue); font-weight: 600; flex-shrink: 0; margin-top: 1px; }
 
   /* PROJECTS */
-  .proj-card { background: var(--white); border: 1px solid var(--line); border-radius: 20px; padding: 28px; cursor: pointer; transition: transform 0.22s cubic-bezier(.22,.68,0,1.2), box-shadow 0.22s, border-color 0.22s; position: relative; overflow: hidden; }
-  .proj-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--blue-light) 0%, transparent 60%); opacity: 0; transition: opacity 0.25s; border-radius: 20px; pointer-events: none; }
-  .proj-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(74,144,217,0.15); border-color: var(--blue-mid); }
-  .proj-card:hover::before { opacity: 1; }
-  .proj-number { font-family: 'DM Serif Display', serif; font-size: 3.5rem; color: var(--blue-light); line-height: 1; position: absolute; top: 16px; right: 20px; user-select: none; }
+  .proj-card { background: var(--white); border: 1px solid var(--line); border-radius: 20px; cursor: pointer; transition: transform 0.22s cubic-bezier(.22,.68,0,1.2), box-shadow 0.22s, border-color 0.22s; overflow: hidden; display: flex; flex-direction: column; }
+  .proj-card:hover { transform: translateY(-6px); box-shadow: 0 20px 56px rgba(74,144,217,0.16); border-color: var(--blue-mid); }
+  .proj-cover { position: relative; width: 100%; height: 180px; overflow: hidden; flex-shrink: 0; }
+  .proj-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
+  .proj-card:hover .proj-cover img { transform: scale(1.05); }
+  .proj-cover-num { position: absolute; top: 10px; right: 14px; font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: rgba(74,144,217,0.5); line-height: 1; user-select: none; text-shadow: 0 1px 4px rgba(0,0,0,0.12); }
+  .proj-body { padding: 22px 22px 18px; flex: 1; display: flex; flex-direction: column; }
+  .proj-title { font-family: 'DM Serif Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--ink); line-height: 1.35; margin-bottom: 8px; }
+  .proj-desc { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.6; flex: 1; }
   .proj-tag { display: inline-block; font-size: 0.72rem; font-weight: 500; background: var(--bg); border: 1px solid var(--line); border-radius: 5px; padding: 3px 9px; color: var(--ink-soft); margin: 2px; }
-  .view-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 0.8rem; font-weight: 600; color: var(--blue); margin-top: 14px; transition: gap 0.2s; }
+  .view-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 0.8rem; font-weight: 600; color: var(--blue); margin-top: 12px; transition: gap 0.2s; }
   .proj-card:hover .view-btn { gap: 9px; }
+
+  /* MODAL GALLERY */
+  .modal-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 8px; }
+  .modal-gallery img { width: 100%; height: 130px; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); transition: transform 0.2s; }
+  .modal-gallery img:hover { transform: scale(1.02); }
+  .modal-gallery .span2 { grid-column: span 2; height: 180px; }
 
   /* MODAL */
   .modal-overlay { position: fixed; inset: 0; background: rgba(15,25,45,0.55); backdrop-filter: blur(6px); z-index: 999; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; pointer-events: none; transition: opacity 0.25s; }
@@ -405,74 +415,99 @@
 
       <!-- P1 -->
       <div class="proj-card reveal reveal-delay-1" onclick="openModal('woms')">
-        <div class="proj-number">01</div>
-        <span class="inline-block bg-[#EBF4FF] text-[#4A90D9] text-xs font-semibold px-2.5 py-1 rounded-full mb-4">Internship Project</span>
-        <h3 class="font-semibold text-[#1A2332] text-lg leading-snug mb-3 pr-8" style="font-family:'DM Serif Display',serif;">Work Order Management System</h3>
-        <p class="text-[#4A5568] text-sm leading-relaxed">Internal task management and workflow tracking system for Machinery Engineering department.</p>
-        <div class="flex flex-wrap mt-4">
-          <span class="proj-tag">AppSheet</span>
-          <span class="proj-tag">Google Sheets</span>
-          <span class="proj-tag">Looker Studio</span>
+        <div class="proj-cover" style="background:linear-gradient(135deg,#EBF4FF,#BFDBFE)">
+          <img src="https://www.pointstar.com.my/wp-content/uploads/2023/08/AppSheet-FI-800x400.jpg" alt="AppSheet dashboard" onerror="this.parentElement.style.background='linear-gradient(135deg,#EBF4FF,#BFDBFE)';this.style.display='none'"/>
+          <div class="proj-cover-num">01</div>
         </div>
-        <div class="view-btn">View Details <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="#4A90D9" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="proj-body">
+          <span class="inline-block bg-[#EBF4FF] text-[#4A90D9] text-xs font-semibold px-2.5 py-1 rounded-full mb-3">Internship Project</span>
+          <h3 class="proj-title">Work Order Management System</h3>
+          <p class="proj-desc">Internal task management and workflow tracking system for Machinery Engineering department.</p>
+          <div class="flex flex-wrap mt-3">
+            <span class="proj-tag">AppSheet</span>
+            <span class="proj-tag">Google Sheets</span>
+            <span class="proj-tag">Looker Studio</span>
+          </div>
+          <div class="view-btn">View Details <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="#4A90D9" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        </div>
       </div>
 
       <!-- P2 -->
       <div class="proj-card reveal reveal-delay-2" onclick="openModal('objdet')">
-        <div class="proj-number">02</div>
-        <span class="inline-block bg-[#EBF4FF] text-[#4A90D9] text-xs font-semibold px-2.5 py-1 rounded-full mb-4">Internship Project</span>
-        <h3 class="font-semibold text-[#1A2332] text-lg leading-snug mb-3 pr-8" style="font-family:'DM Serif Display',serif;">Industrial Object Detection & Monitoring</h3>
-        <p class="text-[#4A5568] text-sm leading-relaxed">Real-time object detection system for production line monitoring and product counting.</p>
-        <div class="flex flex-wrap mt-4">
-          <span class="proj-tag">CiRA CORE</span>
-          <span class="proj-tag">SQL Server</span>
-          <span class="proj-tag">Grafana</span>
-          <span class="proj-tag">Python</span>
+        <div class="proj-cover" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">
+          <img src="https://dac.digital/wp-content/uploads/2023/05/AI-defect-detection.jpg" alt="AI object detection" onerror="this.parentElement.style.background='linear-gradient(135deg,#EFF6FF,#DBEAFE)';this.style.display='none'"/>
+          <div class="proj-cover-num">02</div>
         </div>
-        <div class="view-btn">View Details <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="#4A90D9" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="proj-body">
+          <span class="inline-block bg-[#EBF4FF] text-[#4A90D9] text-xs font-semibold px-2.5 py-1 rounded-full mb-3">Internship Project</span>
+          <h3 class="proj-title">Industrial Object Detection & Monitoring</h3>
+          <p class="proj-desc">Real-time object detection system for production line monitoring and product counting.</p>
+          <div class="flex flex-wrap mt-3">
+            <span class="proj-tag">CiRA CORE</span>
+            <span class="proj-tag">SQL Server</span>
+            <span class="proj-tag">Grafana</span>
+            <span class="proj-tag">Python</span>
+          </div>
+          <div class="view-btn">View Details <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="#4A90D9" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        </div>
       </div>
 
       <!-- P3 -->
       <div class="proj-card reveal reveal-delay-3" onclick="openModal('coopmatch')">
-        <div class="proj-number">03</div>
-        <span class="inline-block bg-[#F0FDF4] text-[#16A34A] text-xs font-semibold px-2.5 py-1 rounded-full mb-4">Web Application</span>
-        <h3 class="font-semibold text-[#1A2332] text-lg leading-snug mb-3 pr-8" style="font-family:'DM Serif Display',serif;">CoopMatch – Internship Matching Platform</h3>
-        <p class="text-[#4A5568] text-sm leading-relaxed">Platform connecting students with internship opportunities using modern full-stack technologies.</p>
-        <div class="flex flex-wrap mt-4">
-          <span class="proj-tag">React</span>
-          <span class="proj-tag">Go</span>
-          <span class="proj-tag">TypeScript</span>
-          <span class="proj-tag">REST API</span>
+        <div class="proj-cover" style="background:linear-gradient(135deg,#F0FDF4,#BBF7D0)">
+          <img src="https://grafana.com/static/img/grafana/showcase_visualize.jpg" alt="Web platform dashboard" onerror="this.parentElement.style.background='linear-gradient(135deg,#F0FDF4,#BBF7D0)';this.style.display='none'"/>
+          <div class="proj-cover-num" style="color:#16A34A">03</div>
         </div>
-        <div class="view-btn">View Details <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="#4A90D9" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="proj-body">
+          <span class="inline-block bg-[#F0FDF4] text-[#16A34A] text-xs font-semibold px-2.5 py-1 rounded-full mb-3">Web Application</span>
+          <h3 class="proj-title">CoopMatch – Internship Matching Platform</h3>
+          <p class="proj-desc">Full-stack platform connecting students with internship opportunities at partner companies.</p>
+          <div class="flex flex-wrap mt-3">
+            <span class="proj-tag">React</span>
+            <span class="proj-tag">Go</span>
+            <span class="proj-tag">TypeScript</span>
+            <span class="proj-tag">REST API</span>
+          </div>
+          <div class="view-btn">View Details <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="#4A90D9" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        </div>
       </div>
 
       <!-- P4 -->
       <div class="proj-card reveal reveal-delay-1" onclick="openModal('esp32')">
-        <div class="proj-number">04</div>
-        <span class="inline-block bg-[#FFF7ED] text-[#EA580C] text-xs font-semibold px-2.5 py-1 rounded-full mb-4">IoT Project</span>
-        <h3 class="font-semibold text-[#1A2332] text-lg leading-snug mb-3 pr-8" style="font-family:'DM Serif Display',serif;">ESP32 Smart Environment Monitor</h3>
-        <p class="text-[#4A5568] text-sm leading-relaxed">IoT-based environment monitoring system using ESP32 with MQTT messaging and Node-RED flows.</p>
-        <div class="flex flex-wrap mt-4">
-          <span class="proj-tag">ESP32</span>
-          <span class="proj-tag">MQTT</span>
-          <span class="proj-tag">Node-RED</span>
+        <div class="proj-cover" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
+          <img src="https://iotcircuithub.com/wp-content/uploads/2021/12/ESP32-Projects.jpg" alt="ESP32 IoT project" onerror="this.parentElement.style.background='linear-gradient(135deg,#FFF7ED,#FED7AA)';this.style.display='none'"/>
+          <div class="proj-cover-num" style="color:#EA580C">04</div>
         </div>
-        <div class="view-btn">View Details <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="#4A90D9" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="proj-body">
+          <span class="inline-block bg-[#FFF7ED] text-[#EA580C] text-xs font-semibold px-2.5 py-1 rounded-full mb-3">IoT Project</span>
+          <h3 class="proj-title">ESP32 Smart Environment Monitor</h3>
+          <p class="proj-desc">IoT environment monitoring using ESP32 with MQTT messaging and Node-RED flows.</p>
+          <div class="flex flex-wrap mt-3">
+            <span class="proj-tag">ESP32</span>
+            <span class="proj-tag">MQTT</span>
+            <span class="proj-tag">Node-RED</span>
+          </div>
+          <div class="view-btn">View Details <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="#4A90D9" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        </div>
       </div>
 
       <!-- P5 -->
       <div class="proj-card reveal reveal-delay-2" onclick="openModal('scholarship')">
-        <div class="proj-number">05</div>
-        <span class="inline-block bg-[#FDF4FF] text-[#9333EA] text-xs font-semibold px-2.5 py-1 rounded-full mb-4">Blockchain</span>
-        <h3 class="font-semibold text-[#1A2332] text-lg leading-snug mb-3 pr-8" style="font-family:'DM Serif Display',serif;">Scholarship Smart Contract</h3>
-        <p class="text-[#4A5568] text-sm leading-relaxed">Decentralized scholarship disbursement system built on Ethereum using Solidity smart contracts.</p>
-        <div class="flex flex-wrap mt-4">
-          <span class="proj-tag">Solidity</span>
-          <span class="proj-tag">MetaMask</span>
-          <span class="proj-tag">Remix IDE</span>
+        <div class="proj-cover" style="background:linear-gradient(135deg,#FDF4FF,#E9D5FF)">
+          <img src="https://miro.medium.com/v2/resize:fit:1400/1*7IHa_UJ3ikfEsU-sOB5YsA.png" alt="Ethereum smart contract" onerror="this.parentElement.style.background='linear-gradient(135deg,#FDF4FF,#E9D5FF)';this.style.display='none'"/>
+          <div class="proj-cover-num" style="color:#9333EA">05</div>
         </div>
-        <div class="view-btn">View Details <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="#4A90D9" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="proj-body">
+          <span class="inline-block bg-[#FDF4FF] text-[#9333EA] text-xs font-semibold px-2.5 py-1 rounded-full mb-3">Blockchain</span>
+          <h3 class="proj-title">Scholarship Smart Contract</h3>
+          <p class="proj-desc">Decentralized scholarship disbursement system on Ethereum using Solidity smart contracts.</p>
+          <div class="flex flex-wrap mt-3">
+            <span class="proj-tag">Solidity</span>
+            <span class="proj-tag">MetaMask</span>
+            <span class="proj-tag">Remix IDE</span>
+          </div>
+          <div class="view-btn">View Details <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="#4A90D9" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        </div>
       </div>
 
     </div>
@@ -578,107 +613,69 @@
 // ─── PROJECT DATA ───
 const projects = {
   woms: {
-    number: '01',
-    label: 'Internship Project',
-    labelColor: '#4A90D9',
-    labelBg: '#EBF4FF',
+    label: 'Internship Project', labelColor: '#4A90D9', labelBg: '#EBF4FF',
     title: 'Work Order Management System',
+    images: [
+      'https://www.pointstar.com.my/wp-content/uploads/2023/08/AppSheet-FI-800x400.jpg',
+      'https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/AppSheet_Automation_Hero_02.max-2200x2200.jpg',
+      'https://agrega.es/wp-content/uploads/2022/03/appsheet-es.png'
+    ],
     overview: 'Developed an internal task management and workflow tracking system for the Machinery Engineering department at The Nawaloha Industry Co., Ltd. The goal was to improve visibility of maintenance operations, reduce manual reporting overhead, and enable managers to track task completion status in real time.',
     technologies: ['AppSheet', 'Google Sheets', 'Looker Studio'],
-    contributions: [
-      'Designed end-to-end workflow structure for the ME department',
-      'Built role-based task tracking system with assignee and status management',
-      'Connected Google Sheets as scalable backend data source',
-      'Created Looker Studio dashboards for reporting and KPI visualization',
-      'Improved task visibility and tracking efficiency across the department'
-    ],
-    learnings: [
-      'Business workflow mapping and requirements gathering',
-      'Low-code system deployment with AppSheet',
-      'Dashboard reporting and data visualization best practices'
-    ]
+    contributions: ['Designed end-to-end workflow structure for the ME department','Built role-based task tracking system with assignee and status management','Connected Google Sheets as scalable backend data source','Created Looker Studio dashboards for reporting and KPI visualization','Improved task visibility and tracking efficiency across the department'],
+    learnings: ['Business workflow mapping and requirements gathering','Low-code system deployment with AppSheet','Dashboard reporting and data visualization best practices']
   },
   objdet: {
-    number: '02',
-    label: 'Internship Project',
-    labelColor: '#4A90D9',
-    labelBg: '#EBF4FF',
+    label: 'Internship Project', labelColor: '#4A90D9', labelBg: '#EBF4FF',
     title: 'Industrial Object Detection & Monitoring System',
-    overview: 'Implemented a real-time object detection system for production line monitoring and product counting at The Nawaloha Industry Co., Ltd. The system captures live camera feeds, runs AI detection, stores results, and visualizes production metrics on a live dashboard accessible to the team.',
-    technologies: ['CiRA CORE', 'SQL Server Express', 'Grafana', 'Python', 'JavaScript'],
-    contributions: [
-      'Configured object detection pipeline in CiRA CORE',
-      'Tuned confidence thresholds to reduce false detections on the production line',
-      'Stored structured detection results in SQL Server Express for historical analysis',
-      'Developed Grafana dashboard for monitoring real-time production metrics',
-      'Used Python and JavaScript within CiRA CORE for data processing and pipeline logic'
+    images: [
+      'https://dac.digital/wp-content/uploads/2023/05/AI-defect-detection.jpg',
+      'https://cdn.prod.website-files.com/634f5b7e4901d6e80b7a8bea/6643eb8c16d0b08e4f3e0f3f_industrial-cameras-blog.jpg',
+      'https://www.humphrey.com.au/wp-content/uploads/2023/02/AI-Machine-Vision-Key-Benefits.jpg'
     ],
-    learnings: [
-      'Real-world AI deployment challenges (noise, lighting, edge cases)',
-      'AI + database integration patterns for industrial IoT',
-      'Production monitoring dashboard design and Grafana query optimization'
-    ]
+    overview: 'Implemented a real-time object detection system for production line monitoring and product counting at The Nawaloha Industry Co., Ltd. The system captures live camera feeds, runs AI detection, stores results in SQL Server, and visualizes production metrics on a live Grafana dashboard.',
+    technologies: ['CiRA CORE', 'SQL Server Express', 'Grafana', 'Python', 'JavaScript'],
+    contributions: ['Configured object detection pipeline in CiRA CORE','Tuned confidence thresholds to reduce false detections','Stored detection results in SQL Server Express for historical analysis','Developed Grafana dashboard for monitoring real-time production metrics','Used Python and JavaScript within CiRA CORE for data processing'],
+    learnings: ['Real-world AI deployment challenges (noise, lighting, edge cases)','AI + database integration patterns for industrial IoT','Production monitoring dashboard design and Grafana query optimization']
   },
   coopmatch: {
-    number: '03',
-    label: 'Web Application',
-    labelColor: '#16A34A',
-    labelBg: '#F0FDF4',
+    label: 'Web Application', labelColor: '#16A34A', labelBg: '#F0FDF4',
     title: 'CoopMatch – Internship Matching Platform',
-    overview: 'A full-stack web platform designed to match university students with internship opportunities at partner companies. Students can browse listings, submit applications, and track their status. Companies can manage postings and review applicants. Built with a modern React frontend and a high-performance Go backend.',
-    technologies: ['React', 'Go', 'TypeScript', 'SQL', 'REST API'],
-    contributions: [
-      'Designed and developed the frontend UI using React and TypeScript',
-      'Built RESTful backend API endpoints in Go',
-      'Implemented user authentication and role-based access control',
-      'Designed relational database schema for students, companies, and applications',
-      'Integrated frontend and backend via REST API'
+    images: [
+      'https://grafana.com/static/img/grafana/showcase_visualize.jpg',
+      'https://www.pointstar.com.my/wp-content/uploads/2023/08/AppSheet-FI-800x400.jpg',
+      'https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/AppSheet_Automation_Hero_02.max-2200x2200.jpg'
     ],
-    learnings: [
-      'Full-stack development workflow with React + Go',
-      'TypeScript for type-safe frontend development',
-      'REST API design patterns and SQL schema design'
-    ]
+    overview: 'A full-stack web platform designed to match university students with internship opportunities at partner companies. Students can browse listings, submit applications, and track their status. Companies can manage postings and review applicants.',
+    technologies: ['React', 'Go', 'TypeScript', 'SQL', 'REST API'],
+    contributions: ['Designed and developed the frontend UI using React and TypeScript','Built RESTful backend API endpoints in Go','Implemented user authentication and role-based access control','Designed relational database schema for students, companies, and applications','Integrated frontend and backend via REST API'],
+    learnings: ['Full-stack development workflow with React + Go','TypeScript for type-safe frontend development','REST API design patterns and SQL schema design']
   },
   esp32: {
-    number: '04',
-    label: 'IoT Project',
-    labelColor: '#EA580C',
-    labelBg: '#FFF7ED',
+    label: 'IoT Project', labelColor: '#EA580C', labelBg: '#FFF7ED',
     title: 'ESP32 Smart Environment Monitor',
+    images: [
+      'https://iotcircuithub.com/wp-content/uploads/2021/12/ESP32-Projects.jpg',
+      'https://iotprojectsideas.com/wp-content/uploads/2021/07/ESP32-Home-Automation.jpg',
+      'https://www.dwin-global.com/wp-content/uploads/2022/10/ESP32-Smart-Home-Automation.jpg'
+    ],
     overview: 'An IoT-based environment monitoring system using an ESP32 microcontroller to collect real-time sensor data (temperature, humidity, air quality) and publish it via MQTT to a Node-RED flow for visualization and alerting.',
     technologies: ['ESP32', 'MQTT', 'Node-RED'],
-    contributions: [
-      'Programmed ESP32 to read sensor data and publish over MQTT',
-      'Configured MQTT broker and topic structure for the device',
-      'Built Node-RED dashboard flows to visualize incoming sensor data',
-      'Set up threshold-based alerting for abnormal environment readings'
-    ],
-    learnings: [
-      'MQTT publish/subscribe protocol and IoT messaging patterns',
-      'ESP32 embedded programming and sensor integration',
-      'Node-RED flow-based visual programming for IoT'
-    ]
+    contributions: ['Programmed ESP32 to read sensor data and publish over MQTT','Configured MQTT broker and topic structure for the device','Built Node-RED dashboard flows to visualize incoming sensor data','Set up threshold-based alerting for abnormal environment readings'],
+    learnings: ['MQTT publish/subscribe protocol and IoT messaging patterns','ESP32 embedded programming and sensor integration','Node-RED flow-based visual programming for IoT']
   },
   scholarship: {
-    number: '05',
-    label: 'Blockchain',
-    labelColor: '#9333EA',
-    labelBg: '#FDF4FF',
+    label: 'Blockchain', labelColor: '#9333EA', labelBg: '#FDF4FF',
     title: 'Scholarship Smart Contract',
+    images: [
+      'https://miro.medium.com/v2/resize:fit:1400/1*7IHa_UJ3ikfEsU-sOB5YsA.png',
+      'https://www.shikshaonline.com/wp-content/uploads/2022/12/Smart-Contracts-in-Blockchain.jpg',
+      'https://www.simplilearn.com/ice9/free_resources_article_thumb/How_to_create_ethereum_smart_contract.jpg'
+    ],
     overview: 'A decentralized scholarship disbursement system built on the Ethereum blockchain. Smart contracts handle the logic for eligibility verification and automatic fund distribution to qualifying student wallet addresses, removing the need for manual processing.',
     technologies: ['Solidity', 'MetaMask', 'Remix IDE'],
-    contributions: [
-      'Wrote Solidity smart contracts for scholarship eligibility and distribution logic',
-      'Tested and deployed contracts using Remix IDE on test networks',
-      'Integrated MetaMask wallet for user authentication and transaction signing',
-      'Implemented access control to restrict admin functions to authorized addresses'
-    ],
-    learnings: [
-      'Solidity smart contract development and deployment lifecycle',
-      'Ethereum transaction model and gas optimization concepts',
-      'Web3 UX patterns with MetaMask wallet integration'
-    ]
+    contributions: ['Wrote Solidity smart contracts for scholarship eligibility and distribution logic','Tested and deployed contracts using Remix IDE on test networks','Integrated MetaMask wallet for user authentication and transaction signing','Implemented access control to restrict admin functions to authorized addresses'],
+    learnings: ['Solidity smart contract development and deployment lifecycle','Ethereum transaction model and gas optimization concepts','Web3 UX patterns with MetaMask wallet integration']
   }
 };
 
@@ -689,10 +686,28 @@ function openModal(id) {
   const techTags = p.technologies.map(t => `<span class="modal-tag">${t}</span>`).join('');
   const contribs = p.contributions.map(c => `<div class="modal-bullet">${c}</div>`).join('');
   const learnings = p.learnings.map(l => `<div class="modal-bullet">${l}</div>`).join('');
+  const imgs = p.images || [];
+  let galleryHtml = '';
+  if (imgs.length >= 3) {
+    galleryHtml = `
+      <div class="modal-section-title">Gallery</div>
+      <div class="modal-gallery">
+        <img src="${imgs[0]}" class="span2" alt="project screenshot 1" onerror="this.style.display='none'"/>
+        <img src="${imgs[1]}" alt="project screenshot 2" onerror="this.style.display='none'"/>
+        <img src="${imgs[2]}" alt="project screenshot 3" onerror="this.style.display='none'"/>
+      </div>`;
+  } else if (imgs.length > 0) {
+    galleryHtml = `
+      <div class="modal-section-title">Gallery</div>
+      <div class="modal-gallery">
+        ${imgs.map((src,i) => `<img src="${src}" class="${i===0?'span2':''}" alt="project image" onerror="this.style.display='none'"/>`).join('')}
+      </div>`;
+  }
   document.getElementById('modalContent').innerHTML = `
     <div>
       <span style="background:${p.labelBg};color:${p.labelColor}" class="inline-block text-xs font-semibold px-2.5 py-1 rounded-full mb-4">${p.label}</span>
       <h2 style="font-family:'DM Serif Display',serif; font-size:1.6rem; line-height:1.2; color:#1A2332; margin-bottom:16px;">${p.title}</h2>
+      ${galleryHtml}
       <div class="modal-section-title">Overview</div>
       <p style="font-size:0.9rem;color:#4A5568;line-height:1.7;">${p.overview}</p>
       <div class="modal-section-title">Technologies Used</div>
