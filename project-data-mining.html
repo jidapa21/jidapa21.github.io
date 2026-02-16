@@ -1,176 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Mining & Analysis — Jidapa Pankam</title>
-  <meta name="description" content="Data mining project applying classification, clustering, and pattern recognition to industrial datasets." />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Genre Association Analysis — Jidapa Pankam</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ═══════════════ HEADER ═══════════════ -->
-  <header class="site-header">
-    <a href="index.html" class="nav-logo">
-      <div class="nav-logo-mark">JP</div>
-      <span>Jidapa Pankam</span>
-    </a>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#skills">Skills</a></li>
-        <li><a href="index.html#projects">Projects</a></li>
-        <li><a href="index.html#experience">Experience</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<header class="site-header">
+  <a href="index.html" class="nav-logo"><div class="nav-mark">JP</div>Jidapa Pankam</a>
+  <nav><ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#experience">Experience</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul></nav>
+</header>
 
-  <!-- ═══════════════ PROJECT HERO ═══════════════ -->
-  <div class="project-hero">
-    <div class="project-hero-bg">
-      <img src="images/datamining.jpg" alt="Data Mining"
-           onerror="this.style.display='none';" />
-      <div class="project-hero-placeholder"></div>
-    </div>
-    <div class="project-hero-content">
-      <a href="index.html" class="back-btn">← Back to Portfolio</a>
-      <span class="project-hero-tag">// Python · Machine Learning · Data Science</span>
-      <h1 class="project-hero-title">Data Mining &amp; Analysis</h1>
-      <p class="project-hero-subtitle">
-        Applying classification, clustering, and pattern recognition algorithms to extract
-        meaningful insights from large-scale datasets — turning raw data into actionable intelligence.
-      </p>
-    </div>
+<!-- ═══ HERO IMAGE ═══ -->
+<div class="proj-hero">
+  <img class="proj-hero-img" src="images/datamining.jpg" alt="Movie Genre Association Analysis"
+       onerror="this.style.display='none'; document.querySelector('.proj-hero-placeholder').style.display='block';" />
+  <div class="proj-hero-placeholder" style="display:none;position:absolute;inset:0;"></div>
+  <div class="proj-hero-content">
+    <a href="index.html" class="back-btn">← Back to Portfolio</a>
+    <span class="proj-eyebrow">// Data Mining · Association Rules · RapidMiner</span>
+    <h1 class="proj-hero-title">Movie Genre Association Analysis</h1>
+    <p class="proj-hero-sub">Discovering frequent genre co-occurrence patterns using FP-Growth and Apriori algorithms.</p>
   </div>
+</div>
 
-  <!-- ═══════════════ PROJECT CONTENT ═══════════════ -->
-  <div class="project-content">
-    <div class="project-layout">
+<!-- ═══ CONTENT ═══ -->
+<div class="proj-content">
+  <div class="proj-layout">
+    <main class="proj-main">
 
-      <!-- Main Content -->
-      <main class="project-main">
+      <!-- Overview -->
+      <div class="info-block">
+        <span class="info-label">Overview</span>
+        <h2 class="info-heading">Project Overview</h2>
+        <p class="info-text">Analyzed relationships between movie genres using Association Rule Mining to identify frequently co-occurring genres and behavioral viewing patterns. Applied frequent itemset mining and association rule generation to discover genre combinations commonly appearing together in animation-based movie datasets.</p>
+      </div>
 
-        <div class="proj-section">
-          <span class="proj-section-label">Overview</span>
-          <h2 class="proj-section-title">Project Overview</h2>
-          <p>
-            This data mining project explores the application of machine learning algorithms to discover patterns, classify outcomes, and cluster data points within large structured datasets. The work demonstrates proficiency in the complete data science pipeline — from data acquisition and preprocessing through model selection, validation, and insight reporting.
-          </p>
-          <p>
-            The project was conducted as part of the Computer Engineering curriculum at Suranaree University of Technology, with a focus on applying theoretical concepts to practical, real-world data scenarios.
-          </p>
-        </div>
+      <!-- Objective -->
+      <div class="info-block">
+        <span class="info-label">Objective</span>
+        <h2 class="info-heading">Objectives</h2>
+        <ul class="feat-list">
+          <li>Identify frequent genre combinations in animation-based movies</li>
+          <li>Apply FP-Growth and Apriori association rule mining techniques</li>
+          <li>Analyze Support, Confidence, and Lift metrics for discovered rules</li>
+          <li>Interpret patterns for potential content recommendation systems</li>
+        </ul>
+      </div>
 
-        <div class="proj-section">
-          <span class="proj-section-label">Problem Statement</span>
-          <h2 class="proj-section-title">The Problem</h2>
-          <p>
-            Raw data collected from industrial or operational systems is often high-dimensional, noisy, and difficult to interpret without structured analysis. Traditional reporting tools show what happened, but fail to reveal why patterns occur or predict future behavior.
-          </p>
-          <p>
-            The challenge was to transform raw, unprocessed datasets into structured insights using data mining techniques, and to evaluate which algorithms perform best for different types of pattern discovery tasks.
-          </p>
-        </div>
+      <!-- Process -->
+      <div class="info-block">
+        <span class="info-label">Process</span>
+        <h2 class="info-heading">Mining Process</h2>
+        <ul class="feat-list">
+          <li><strong>Step 1 —</strong> Data retrieval and cleaning of the movie dataset</li>
+          <li><strong>Step 2 —</strong> Attribute selection focusing on the genre column</li>
+          <li><strong>Step 3 —</strong> Nominal to text conversion for genre values</li>
+          <li><strong>Step 4 —</strong> Tokenization of multi-genre strings into individual items</li>
+          <li><strong>Step 5 —</strong> Frequent itemset generation via FP-Growth algorithm</li>
+          <li><strong>Step 6 —</strong> Association rule creation and metric evaluation</li>
+        </ul>
+      </div>
 
-        <div class="proj-section">
-          <span class="proj-section-label">Solution Approach</span>
-          <h2 class="proj-section-title">How I Solved It</h2>
-          <p>
-            I applied a systematic data science methodology across multiple algorithm families to find the most effective analysis approach:
-          </p>
-          <ul class="proj-feature-list">
-            <li>Performed exploratory data analysis (EDA) to understand distributions, missing values, and feature correlations</li>
-            <li>Applied data cleaning and preprocessing: handling nulls, encoding categorical variables, and normalizing numerical features</li>
-            <li>Implemented supervised learning classification algorithms including Decision Trees, Random Forest, and k-NN for labeled dataset tasks</li>
-            <li>Applied unsupervised clustering methods (k-Means, hierarchical clustering) to identify natural groupings within data</li>
-            <li>Used association rule mining to discover co-occurrence patterns in transactional or sequential data</li>
-            <li>Evaluated models using cross-validation, confusion matrices, precision/recall, and F1-score metrics</li>
-            <li>Visualized findings using matplotlib and seaborn to communicate insights clearly</li>
-          </ul>
-        </div>
+      <!-- Key Results — visual metrics -->
+      <div class="info-block">
+        <span class="info-label">Key Results</span>
+        <h2 class="info-heading">Key Results</h2>
 
-        <div class="proj-section">
-          <span class="proj-section-label">Key Features</span>
-          <h2 class="proj-section-title">Key Features</h2>
-          <ul class="proj-feature-list">
-            <li>Complete data preprocessing pipeline with feature engineering</li>
-            <li>Multi-algorithm comparison framework for classification tasks</li>
-            <li>K-Means and hierarchical clustering with silhouette score evaluation</li>
-            <li>Association rule mining with confidence and support threshold analysis</li>
-            <li>Cross-validation and hyperparameter tuning pipelines</li>
-            <li>Comprehensive visualization suite for exploratory and results analysis</li>
-            <li>Structured reporting of findings with statistical significance testing</li>
-          </ul>
-        </div>
-
-        <div class="proj-section">
-          <span class="proj-section-label">Result / Impact</span>
-          <h2 class="proj-section-title">Results &amp; Impact</h2>
-          <div class="result-highlight">
-            <p>
-              The project demonstrated that <strong>ensemble methods (Random Forest) outperformed single-tree classifiers</strong> across the tested datasets, while k-Means clustering effectively identified <strong>meaningful customer and operational segments</strong> not visible in raw tabular reports. The analysis pipeline developed became a reusable template for future data-driven tasks, and the methodology was applied to inform data collection strategies for the industrial ML projects completed during the internship.
-            </p>
+        <!-- Top-level metrics -->
+        <div class="metrics-grid" style="margin-bottom:20px;">
+          <div class="metric-card">
+            <span class="metric-val">1.000</span>
+            <span class="metric-label">Animation Support</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val">0.820</span>
+            <span class="metric-label">Anim → Adventure</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val">0.610</span>
+            <span class="metric-label">Adventure → Comedy</span>
           </div>
         </div>
 
-      </main>
-
-      <!-- Sidebar -->
-      <aside class="project-sidebar">
-
-        <div class="sidebar-card">
-          <div class="sidebar-card-title">Technical Stack</div>
-          <ul class="tech-stack-list">
-            <li>Python 3.x</li>
-            <li>scikit-learn</li>
-            <li>pandas / NumPy</li>
-            <li>matplotlib / seaborn</li>
-            <li>Jupyter Notebook</li>
-            <li>SQL (data queries)</li>
-          </ul>
-        </div>
-
-        <div class="sidebar-card">
-          <div class="sidebar-card-title">Algorithms Applied</div>
-          <div class="impact-stat">
-            <span class="impact-stat-value">Classification</span>
-            <span class="impact-stat-label">Decision Tree, Random Forest, k-NN</span>
+        <!-- Genre support bars -->
+        <p class="info-text" style="margin-bottom:12px;">Genre Support Distribution</p>
+        <div class="bar-wrap">
+          <div class="bar-row">
+            <span class="bar-genre">Animation</span>
+            <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+            <span class="bar-val">1.000</span>
           </div>
-          <div class="impact-stat">
-            <span class="impact-stat-value">Clustering</span>
-            <span class="impact-stat-label">k-Means, Hierarchical</span>
+          <div class="bar-row">
+            <span class="bar-genre">Adventure</span>
+            <div class="bar-track"><div class="bar-fill" style="width:82%;"></div></div>
+            <span class="bar-val">0.820</span>
           </div>
-          <div class="impact-stat">
-            <span class="impact-stat-value">Association</span>
-            <span class="impact-stat-label">Apriori / Rule Mining</span>
+          <div class="bar-row">
+            <span class="bar-genre">Comedy</span>
+            <div class="bar-track"><div class="bar-fill" style="width:61%;"></div></div>
+            <span class="bar-val">0.610</span>
           </div>
         </div>
 
-        <div class="sidebar-card">
-          <div class="sidebar-card-title">Project Details</div>
-          <ul class="tech-stack-list">
-            <li>Academic / Coursework Project</li>
-            <li>Suranaree University of Technology</li>
-            <li>Computer Engineering Program</li>
-          </ul>
+        <!-- Association rules -->
+        <p class="info-text" style="margin:16px 0 12px;">Discovered Association Rules</p>
+
+        <div style="display:flex;flex-direction:column;gap:10px;">
+
+          <div class="rule-card">
+            <div class="rule-arrow-label">
+              <span class="rule-genre">Animation</span>
+              <span class="rule-sep">→</span>
+              <span class="rule-genre">Adventure</span>
+            </div>
+            <div class="rule-metrics">
+              <div class="rule-metric">
+                <span class="rule-metric-val">0.820</span>
+                <span class="rule-metric-label">Support</span>
+              </div>
+              <div class="rule-metric">
+                <span class="rule-metric-val">0.820</span>
+                <span class="rule-metric-label">Confidence</span>
+              </div>
+              <div class="rule-metric">
+                <span class="rule-metric-val">1.000</span>
+                <span class="rule-metric-label">Lift</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rule-card">
+            <div class="rule-arrow-label">
+              <span class="rule-genre">Adventure</span>
+              <span class="rule-sep">→</span>
+              <span class="rule-genre">Comedy</span>
+            </div>
+            <div class="rule-metrics">
+              <div class="rule-metric">
+                <span class="rule-metric-val">0.610</span>
+                <span class="rule-metric-label">Support</span>
+              </div>
+              <div class="rule-metric">
+                <span class="rule-metric-val">0.610</span>
+                <span class="rule-metric-label">Confidence</span>
+              </div>
+              <div class="rule-metric">
+                <span class="rule-metric-val">~1.00</span>
+                <span class="rule-metric-label">Lift</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rule-card">
+            <div class="rule-arrow-label">
+              <span class="rule-genre">Animation</span>
+              <span class="rule-sep">→</span>
+              <span class="rule-genre">Adventure</span>
+              <span class="rule-sep" style="font-size:.8rem;">+</span>
+              <span class="rule-genre">Comedy</span>
+            </div>
+            <div class="rule-metrics">
+              <div class="rule-metric">
+                <span class="rule-metric-val">0.610</span>
+                <span class="rule-metric-label">Support</span>
+              </div>
+              <div class="rule-metric">
+                <span class="rule-metric-val">0.610</span>
+                <span class="rule-metric-label">Confidence</span>
+              </div>
+            </div>
+          </div>
+
         </div>
+      </div>
 
-        <a href="index.html" class="sidebar-back-btn">← Back to All Projects</a>
+      <!-- Impact -->
+      <div class="info-block">
+        <span class="info-label">Impact</span>
+        <h2 class="info-heading">Insight &amp; Impact</h2>
+        <div class="result-box">
+          <p>Revealed that <strong>Animation–Adventure–Comedy</strong> is the dominant genre cluster in animated film production, reflecting real industry trends. These association patterns demonstrate how ARM can power <strong>content recommendation systems</strong>, entertainment market analysis, and data-driven production planning decisions.</p>
+        </div>
+      </div>
 
-      </aside>
-    </div>
+    </main>
+
+    <!-- ═══ SIDEBAR ═══ -->
+    <aside class="proj-sidebar">
+
+      <div class="side-card">
+        <div class="side-card-title">Technical Stack</div>
+        <ul class="stack-list">
+          <li>RapidMiner Studio</li>
+          <li>FP-Growth Algorithm</li>
+          <li>Apriori Algorithm</li>
+          <li>Data Preprocessing</li>
+          <li>Association Rule Mining</li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <div class="side-card-title">Top Rule Metrics</div>
+        <div class="stat-item">
+          <span class="stat-val">1.000</span>
+          <span class="stat-lbl">Animation support (highest)</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-val">0.820</span>
+          <span class="stat-lbl">Anim → Adventure confidence</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-val">0.610</span>
+          <span class="stat-lbl">Adventure → Comedy support</span>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-card-title">Application Areas</div>
+        <ul class="stack-list">
+          <li>Recommendation Systems</li>
+          <li>Market Analysis</li>
+          <li>Production Planning</li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <div class="side-card-title">Context</div>
+        <ul class="stack-list">
+          <li>Suranaree University of Technology</li>
+          <li>Computer Engineering</li>
+          <li>Data Mining Course</li>
+        </ul>
+      </div>
+
+      <a href="index.html" class="sidebar-back">← All Projects</a>
+
+    </aside>
   </div>
+</div>
 
-  <!-- ═══════════════ FOOTER ═══════════════ -->
-  <footer class="site-footer">
-    <p class="footer-text">
-      © 2026 Jidapa Pankam — Deployed on <span>GitHub Pages</span>
-    </p>
-  </footer>
-
+<footer class="site-footer">
+  <p class="footer-text">© 2026 Jidapa Pankam — Deployed on <span>GitHub Pages</span></p>
+</footer>
 </body>
 </html>

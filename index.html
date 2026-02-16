@@ -1,290 +1,1078 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jidapa Pankam — AI & Industrial Automation Engineer</title>
-  <meta name="description" content="Portfolio of Jidapa Pankam — AI & Industrial Automation Engineer specializing in Computer Vision, ML, and industrial systems." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jidapa Pankam — AI Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          syne: ['Syne', 'sans-serif'],
+          dm: ['DM Sans', 'sans-serif'],
+          mono: ['DM Mono', 'monospace'],
+        },
+        colors: {
+          ink: '#0D0D0F',
+          surface: '#13131A',
+          card: '#1A1A24',
+          border: '#2A2A38',
+          muted: '#4A4A62',
+          subtle: '#8888A8',
+          body: '#C4C4D8',
+          bright: '#F0F0F8',
+          accent: '#4F8EF7',
+          accentDim: '#1E3A66',
+          accentGlow: 'rgba(79,142,247,0.12)',
+          teal: '#3ED8C3',
+          amber: '#F5A623',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: #0D0D0F;
+    color: #C4C4D8;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Grid texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(79,142,247,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(79,142,247,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .relative { position: relative; }
+  section, nav, footer { position: relative; z-index: 1; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #13131A; }
+  ::-webkit-scrollbar-thumb { background: #2A2A38; border-radius: 2px; }
+
+  /* Navbar */
+  .navbar {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(13,13,15,0.85);
+    border-bottom: 1px solid rgba(42,42,56,0.6);
+  }
+
+  .nav-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8888A8;
+    transition: color 0.2s;
+    padding: 6px 0;
+    position: relative;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 1px;
+    background: #4F8EF7;
+    transition: width 0.25s ease;
+  }
+  .nav-link:hover { color: #F0F0F8; }
+  .nav-link:hover::after { width: 100%; }
+
+  /* Hero */
+  .hero-bg {
+    background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(79,142,247,0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 10% 80%, rgba(62,216,195,0.04) 0%, transparent 60%);
+  }
+
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(79,142,247,0.1);
+    border: 1px solid rgba(79,142,247,0.25);
+    color: #4F8EF7;
+    padding: 4px 12px;
+    border-radius: 100px;
+    display: inline-block;
+  }
+
+  .hero-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: #F0F0F8;
+  }
+
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 500;
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    color: #4F8EF7;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary {
+    background: #4F8EF7;
+    color: #0D0D0F;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    padding: 12px 28px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  .btn-primary:hover {
+    background: #7AADF9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(79,142,247,0.3);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: #C4C4D8;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    padding: 11px 28px;
+    border-radius: 6px;
+    border: 1px solid #2A2A38;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-ghost:hover {
+    border-color: #4F8EF7;
+    color: #F0F0F8;
+    transform: translateY(-2px);
+  }
+
+  /* Section headings */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #4F8EF7;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: #F0F0F8;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  /* Cards */
+  .card {
+    background: #1A1A24;
+    border: 1px solid #2A2A38;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+  .card:hover {
+    border-color: rgba(79,142,247,0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(79,142,247,0.15);
+  }
+
+  /* Skill categories */
+  .skill-category {
+    background: #13131A;
+    border: 1px solid #2A2A38;
+    border-radius: 10px;
+    padding: 20px 22px;
+    transition: border-color 0.2s;
+  }
+  .skill-category:hover { border-color: #3A3A50; }
+
+  .skill-cat-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #4F8EF7;
+    margin-bottom: 12px;
+  }
+
+  .skill-pill {
+    background: rgba(42,42,56,0.6);
+    border: 1px solid #2A2A38;
+    color: #C4C4D8;
+    font-size: 0.78rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-family: 'DM Mono', monospace;
+    display: inline-block;
+    margin: 3px;
+  }
+
+  /* Timeline */
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+    background: #4F8EF7;
+    border-radius: 50%;
+    border: 3px solid #0D0D0F;
+    box-shadow: 0 0 0 2px #4F8EF7;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .timeline-line {
+    width: 1px;
+    background: linear-gradient(to bottom, #4F8EF7, #2A2A38);
+    margin-left: 5px;
+  }
+
+  /* Project cards */
+  .project-card {
+    background: #1A1A24;
+    border: 1px solid #2A2A38;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    position: relative;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #4F8EF7, #3ED8C3);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .project-card:hover::before { transform: scaleX(1); }
+  .project-card:hover {
+    border-color: rgba(79,142,247,0.35);
+    transform: translateY(-6px);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(79,142,247,0.1);
+  }
+
+  .project-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    color: #2A2A38;
+    line-height: 1;
+    transition: color 0.3s;
+  }
+  .project-card:hover .project-num { color: rgba(79,142,247,0.15); }
+
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #F0F0F8;
+    letter-spacing: -0.01em;
+  }
+
+  .tech-chip {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    background: rgba(79,142,247,0.08);
+    border: 1px solid rgba(79,142,247,0.2);
+    color: #4F8EF7;
+    padding: 3px 8px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+
+  /* Modal */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
+  .modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .modal-box {
+    background: #13131A;
+    border: 1px solid #2A2A38;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 680px;
+    max-height: 88vh;
+    overflow-y: auto;
+    transform: translateY(20px) scale(0.98);
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+  .modal-overlay.active .modal-box {
+    transform: translateY(0) scale(1);
+  }
+
+  .modal-box::-webkit-scrollbar { width: 3px; }
+  .modal-box::-webkit-scrollbar-track { background: transparent; }
+  .modal-box::-webkit-scrollbar-thumb { background: #2A2A38; }
+
+  .modal-header {
+    background: linear-gradient(135deg, #1A1A24, #13131A);
+    border-bottom: 1px solid #2A2A38;
+    padding: 28px 32px 24px;
+  }
+
+  .modal-section-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #4F8EF7;
+    margin-bottom: 8px;
+  }
+
+  .modal-close {
+    width: 36px;
+    height: 36px;
+    background: #1A1A24;
+    border: 1px solid #2A2A38;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  .modal-close:hover {
+    background: #2A2A38;
+    border-color: #4F8EF7;
+  }
+
+  /* Contact */
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: #13131A;
+    border: 1px solid #2A2A38;
+    border-radius: 10px;
+    transition: border-color 0.2s;
+    text-decoration: none;
+  }
+  .contact-item:hover { border-color: #4F8EF7; }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(79,142,247,0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* Fade-in animation */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Mobile menu */
+  #mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: rgba(13,13,15,0.98);
+    border-bottom: 1px solid #2A2A38;
+    padding: 16px 24px;
+  }
+  #mobile-menu.open { display: flex; }
+  #mobile-menu .nav-link { font-size: 0.8rem; padding: 8px 0; }
+
+  /* Decorative number */
+  .deco-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 9rem;
+    font-weight: 800;
+    color: rgba(42,42,56,0.4);
+    line-height: 1;
+    position: absolute;
+    right: -10px;
+    top: -30px;
+    pointer-events: none;
+    user-select: none;
+  }
+</style>
 </head>
 <body>
 
-  <!-- ═══════════════ HEADER ═══════════════ -->
-  <header class="site-header">
-    <a href="index.html" class="nav-logo">
-      <div class="nav-logo-mark">JP</div>
-      <span>Jidapa Pankam</span>
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+    <a href="#hero" class="font-syne font-bold text-bright text-sm tracking-tight">
+      JP<span class="text-accent">.</span>
     </a>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#education" class="nav-link">Education</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <button id="menu-btn" class="md:hidden text-subtle p-1" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <div id="mobile-menu">
+    <a href="#about" class="nav-link" onclick="closeMobile()">About</a>
+    <a href="#skills" class="nav-link" onclick="closeMobile()">Skills</a>
+    <a href="#experience" class="nav-link" onclick="closeMobile()">Experience</a>
+    <a href="#projects" class="nav-link" onclick="closeMobile()">Projects</a>
+    <a href="#education" class="nav-link" onclick="closeMobile()">Education</a>
+    <a href="#contact" class="nav-link" onclick="closeMobile()">Contact</a>
+  </div>
+</nav>
 
-  <!-- ═══════════════ HERO ═══════════════ -->
-  <section id="about" class="hero">
-    <div class="hero-content">
-      <div class="hero-label">
-        <span class="hero-label-dot"></span>
-        Available for opportunities
+<!-- ===================== HERO ===================== -->
+<section id="hero" class="hero-bg min-h-screen flex items-center pt-14">
+  <div class="max-w-6xl mx-auto px-6 py-24 w-full">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <div class="tag mb-6">Available for Opportunities</div>
+        <h1 class="hero-name mb-3">
+          Jidapa<br/>Pankam
+        </h1>
+        <p class="hero-title mb-6">AI Engineer</p>
+        <p class="text-body text-base leading-relaxed max-w-lg mb-10" style="font-weight:300;">
+          Entry-level AI Engineer with hands-on experience in Industrial Computer Vision and Smart Factory systems. Passionate about deploying real-time object detection, IoT integration, and data-driven decision-making in manufacturing environments.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="https://github.com/jidapa21" target="_blank" class="btn-primary">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            GitHub Profile
+          </a>
+          <a href="#contact" class="btn-ghost">
+            Get in Touch
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
       </div>
-      <h1 class="hero-name">Jidapa<br /><span>Pankam</span></h1>
-      <p class="hero-title"><strong>AI &amp; Industrial Automation Engineer</strong> — aka Aum</p>
-      <p class="hero-bio">
-        Computer Engineering graduate with hands-on experience in Artificial Intelligence,
-        Machine Learning, and Industrial Automation systems. I've built object detection
-        systems, real-time monitoring dashboards, and workflow automation solutions for
-        manufacturing environments.
-      </p>
-      <div class="hero-cta">
-        <a href="#projects" class="btn-primary">
-          <span>View Projects</span>
-          <span>↓</span>
-        </a>
-        <a href="#contact" class="btn-secondary">
-          <span>Get in Touch</span>
-          <span>→</span>
-        </a>
+
+      <div class="hidden md:block">
+        <div class="relative">
+          <!-- Decorative card -->
+          <div style="background:#1A1A24;border:1px solid #2A2A38;border-radius:16px;padding:28px;" class="relative">
+            <div style="position:absolute;top:-1px;left:32px;right:32px;height:2px;background:linear-gradient(90deg,#4F8EF7,#3ED8C3);border-radius:0;"></div>
+            <div class="section-label mb-4">Current Focus</div>
+            <div class="space-y-3">
+              <div style="display:flex;align-items:center;gap:12px;padding:12px;background:#13131A;border:1px solid #2A2A38;border-radius:8px;">
+                <span style="width:8px;height:8px;background:#3ED8C3;border-radius:50%;flex-shrink:0;"></span>
+                <span class="text-body text-sm font-dm">Industrial Computer Vision</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;padding:12px;background:#13131A;border:1px solid #2A2A38;border-radius:8px;">
+                <span style="width:8px;height:8px;background:#4F8EF7;border-radius:50%;flex-shrink:0;"></span>
+                <span class="text-body text-sm font-dm">Smart Factory & IoT Systems</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;padding:12px;background:#13131A;border:1px solid #2A2A38;border-radius:8px;">
+                <span style="width:8px;height:8px;background:#F5A623;border-radius:50%;flex-shrink:0;"></span>
+                <span class="text-body text-sm font-dm">Workflow Automation</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;padding:12px;background:#13131A;border:1px solid #2A2A38;border-radius:8px;">
+                <span style="width:8px;height:8px;background:#9B6CF7;border-radius:50%;flex-shrink:0;"></span>
+                <span class="text-body text-sm font-dm">Manufacturing Dashboards</span>
+              </div>
+            </div>
+            <div class="mt-6 pt-5" style="border-top:1px solid #2A2A38;">
+              <div class="section-label">Location</div>
+              <p class="text-body text-sm mt-1">Nong Saeng, Saraburi, Thailand</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="hero-avatar">
-        <img src="/images/profile.jpg" alt="Jidapa Pankam" class="hero-avatar-img" />
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about" class="py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="fade-in grid md:grid-cols-3 gap-12 items-start">
+      <div>
+        <div class="section-label">Who I Am</div>
+        <h2 class="section-title">About<br/>Me</h2>
       </div>
-      <div class="hero-badge">AI&nbsp;/&nbsp;ML&nbsp;Engineer</div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- ═══════════════ SKILLS ═══════════════ -->
-  <section id="skills" class="section">
-    <div class="section-header">
-      <span class="section-label">// expertise</span>
-      <h2 class="section-title">Technical Skills</h2>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-chip"><span class="skill-chip-dot"></span>Artificial Intelligence</div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span>Machine Learning</div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span>Computer Vision</div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span>Object Detection</div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span>Python</div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span>JavaScript</div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span>SQL</div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span>Go</div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span>TypeScript</div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span>C#</div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span>SQL Server Express</div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span>Grafana</div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span>REST APIs</div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span>MQTT</div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span>Node-RED</div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span>Agile / Scrum</div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- ═══════════════ PROJECTS ═══════════════ -->
-  <section id="projects" class="section">
-    <div class="section-header">
-      <span class="section-label">// portfolio</span>
-      <h2 class="section-title">Featured Projects</h2>
-    </div>
-
-    <h3 class="project-category">Internship Projects</h3>
-
-    <div class="projects-grid">
-      
-      <!-- Card 1: Object Detection -->
-      <a class="project-card" href="project-object-detection.html">
-        <div class="card-img-wrap">
-          <img src="images/grafana_dashboard.jpg" alt="Industrial Object Detection System" />
-          <div class="card-img-overlay"></div>
-          <span class="card-tag">CiRA CORE · SQL · Grafana</span>
+      <div class="md:col-span-2 space-y-4">
+        <p class="text-body leading-relaxed" style="font-size:1.05rem;font-weight:300;">
+          I'm an AI Engineering student at Suranaree University of Technology, currently completing my internship at The Nawaloha Industry Co., Ltd. — a manufacturing company in Saraburi where I work on real-world AI deployment in production environments.
+        </p>
+        <p class="text-body leading-relaxed" style="font-size:1.05rem;font-weight:300;">
+          My work sits at the intersection of machine learning and industrial systems — from training object detection models and validating their outputs against QA standards, to building the dashboards and workflow tools that help factory teams act on that data.
+        </p>
+        <p class="text-body leading-relaxed" style="font-size:1.05rem;font-weight:300;">
+          I'm drawn to problems where AI meets the physical world: where a model's precision directly impacts product quality, and where well-designed data pipelines replace manual bottlenecks with automated insight.
+        </p>
+        <div class="grid grid-cols-3 gap-4 pt-4">
+          <div style="text-align:center;padding:16px;background:#1A1A24;border:1px solid #2A2A38;border-radius:10px;">
+            <div style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:#F0F0F8;">3.36</div>
+            <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:#8888A8;text-transform:uppercase;margin-top:4px;">GPA / 4.00</div>
+          </div>
+          <div style="text-align:center;padding:16px;background:#1A1A24;border:1px solid #2A2A38;border-radius:10px;">
+            <div style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:#F0F0F8;">5</div>
+            <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:#8888A8;text-transform:uppercase;margin-top:4px;">Projects</div>
+          </div>
+          <div style="text-align:center;padding:16px;background:#1A1A24;border:1px solid #2A2A38;border-radius:10px;">
+            <div style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:#F0F0F8;">4mo</div>
+            <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:#8888A8;text-transform:uppercase;margin-top:4px;">Industry Exp.</div>
+          </div>
         </div>
-        <div class="card-body">
-          <div class="card-title-row">
-            <h3 class="card-title">Industrial Object Detection System</h3>
-            <div class="card-meta">AI / Quality Assurance</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SKILLS ===================== -->
+<section id="skills" class="py-24" style="background:rgba(19,19,26,0.6);">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="fade-in text-center mb-14">
+      <div class="section-label">Capabilities</div>
+      <h2 class="section-title">Skills &amp; Technologies</h2>
+    </div>
+    <div class="fade-in grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="skill-category">
+        <div class="skill-cat-title">Industrial AI &amp; IoT</div>
+        <div>
+          <span class="skill-pill">CiRA CORE</span>
+          <span class="skill-pill">Node-RED</span>
+          <span class="skill-pill">Grafana</span>
+          <span class="skill-pill">MQTT</span>
+          <span class="skill-pill">HTTP</span>
+          <span class="skill-pill">AppSheet</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">Programming</div>
+        <div>
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">TypeScript</span>
+          <span class="skill-pill">Go</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">C/C++</span>
+          <span class="skill-pill">Java</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">Data &amp; Tools</div>
+        <div>
+          <span class="skill-pill">SQL Server</span>
+          <span class="skill-pill">REST API</span>
+          <span class="skill-pill">GitHub</span>
+          <span class="skill-pill">Figma</span>
+          <span class="skill-pill">Postman</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">Concepts</div>
+        <div>
+          <span class="skill-pill">Smart Factory</span>
+          <span class="skill-pill">Agile</span>
+          <span class="skill-pill">DB Management</span>
+          <span class="skill-pill">Workflow Optimization</span>
+          <span class="skill-pill">Object Detection</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EXPERIENCE ===================== -->
+<section id="experience" class="py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="fade-in grid md:grid-cols-3 gap-12 items-start">
+      <div>
+        <div class="section-label">Work History</div>
+        <h2 class="section-title">Experience</h2>
+      </div>
+      <div class="md:col-span-2">
+        <div class="flex gap-6">
+          <div class="flex flex-col items-center" style="padding-top:4px;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line flex-1 mt-3"></div>
           </div>
-          <p class="card-desc">
-            Object detection and product counting system implemented with CiRA CORE for anomaly detection and counting. Includes confidence-threshold tuning, AI result validation, SQL Server Express integration, and a Grafana dashboard for real-time monitoring (Grafana is part of this system).
-          </p>
-          <div class="card-tech">
-            <span class="tech">CiRA CORE</span>
-            <span class="tech">SQL Server Express</span>
-            <span class="tech">Grafana</span>
-            <span class="tech">AI Validation</span>
+          <div class="pb-8 flex-1">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+              <div>
+                <h3 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.15rem;color:#F0F0F8;letter-spacing:-0.01em;">AI/Software Engineering Intern</h3>
+                <p style="color:#4F8EF7;font-size:0.9rem;font-family:'DM Mono',monospace;margin-top:3px;">The Nawaloha Industry Co., Ltd. (NIC)</p>
+                <p style="color:#8888A8;font-size:0.78rem;margin-top:2px;">Saraburi, Thailand</p>
+              </div>
+              <div class="tag" style="white-space:nowrap;">Oct 2025 – Jan 2026</div>
+            </div>
+            <div style="background:#1A1A24;border:1px solid #2A2A38;border-radius:10px;padding:20px;">
+              <ul class="space-y-3">
+                <li style="display:flex;gap:10px;font-size:0.88rem;color:#C4C4D8;line-height:1.6;">
+                  <span style="color:#4F8EF7;flex-shrink:0;margin-top:2px;">▸</span>
+                  Developed internal Work Order Management system using AppSheet for the Machinery Engineering department
+                </li>
+                <li style="display:flex;gap:10px;font-size:0.88rem;color:#C4C4D8;line-height:1.6;">
+                  <span style="color:#4F8EF7;flex-shrink:0;margin-top:2px;">▸</span>
+                  Implemented CiRA CORE for real-time Object Detection — product counting, anomaly detection, and model verification
+                </li>
+                <li style="display:flex;gap:10px;font-size:0.88rem;color:#C4C4D8;line-height:1.6;">
+                  <span style="color:#4F8EF7;flex-shrink:0;margin-top:2px;">▸</span>
+                  Tuned confidence thresholds to reduce false detections; validated AI results against QA standards
+                </li>
+                <li style="display:flex;gap:10px;font-size:0.88rem;color:#C4C4D8;line-height:1.6;">
+                  <span style="color:#4F8EF7;flex-shrink:0;margin-top:2px;">▸</span>
+                  Designed Grafana dashboards connected to SQL Server Express using Python and JavaScript
+                </li>
+                <li style="display:flex;gap:10px;font-size:0.88rem;color:#C4C4D8;line-height:1.6;">
+                  <span style="color:#4F8EF7;flex-shrink:0;margin-top:2px;">▸</span>
+                  Digitalized maintenance operations and improved workflow visibility across production lines
+                </li>
+              </ul>
+            </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECTS ===================== -->
+<section id="projects" class="py-24" style="background:rgba(19,19,26,0.6);">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="fade-in text-center mb-14">
+      <div class="section-label">Selected Work</div>
+      <h2 class="section-title">Projects</h2>
+      <p class="text-subtle mt-3 text-sm font-dm">Click any card to explore details</p>
+    </div>
+    <div class="fade-in grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <!-- Project 1 -->
+      <div class="project-card p-6" onclick="openModal(0)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+          <div class="project-num">01</div>
+          <div style="width:36px;height:36px;background:rgba(79,142,247,0.1);border:1px solid rgba(79,142,247,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" fill="none" stroke="#4F8EF7" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M20.188 10.934c.2.4.312.83.312 1.066s-.112.665-.312 1.066l1.907 1.908a10 10 0 000-5.948l-1.907 1.908zM13.066 3.812C12.665 3.612 12.235 3.5 12 3.5s-.665.112-1.066.312L9.026 1.905a10 10 0 015.948 0L13.066 3.812z" stroke-width="1.5"/></svg>
+          </div>
+        </div>
+        <h3 class="project-title mb-2">Industrial Object Detection System</h3>
+        <p style="font-size:0.83rem;color:#8888A8;line-height:1.5;margin-bottom:16px;">Real-time product counting and anomaly detection on manufacturing production lines.</p>
+        <div class="flex flex-wrap gap-1">
+          <span class="tech-chip">CiRA CORE</span>
+          <span class="tech-chip">Python</span>
+          <span class="tech-chip">SQL Server</span>
+          <span class="tech-chip">Grafana</span>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card p-6" onclick="openModal(1)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+          <div class="project-num">02</div>
+          <div style="width:36px;height:36px;background:rgba(62,216,195,0.08);border:1px solid rgba(62,216,195,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" fill="none" stroke="#3ED8C3" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+          </div>
+        </div>
+        <h3 class="project-title mb-2">Work Order Management System</h3>
+        <p style="font-size:0.83rem;color:#8888A8;line-height:1.5;margin-bottom:16px;">Internal workflow automation for Machinery Engineering department task tracking.</p>
+        <div class="flex flex-wrap gap-1">
+          <span class="tech-chip">AppSheet</span>
+          <span class="tech-chip">SQL Server</span>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card p-6" onclick="openModal(2)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+          <div class="project-num">03</div>
+          <div style="width:36px;height:36px;background:rgba(155,108,247,0.08);border:1px solid rgba(155,108,247,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" fill="none" stroke="#9B6CF7" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+        </div>
+        <h3 class="project-title mb-2">CoopMatch – Internship Matching</h3>
+        <p style="font-size:0.83rem;color:#8888A8;line-height:1.5;margin-bottom:16px;">Full-stack platform connecting students, companies, and university administrators.</p>
+        <div class="flex flex-wrap gap-1">
+          <span class="tech-chip">React</span>
+          <span class="tech-chip">Go</span>
+          <span class="tech-chip">TypeScript</span>
+          <span class="tech-chip">REST API</span>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card p-6" onclick="openModal(3)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+          <div class="project-num">04</div>
+          <div style="width:36px;height:36px;background:rgba(245,166,35,0.08);border:1px solid rgba(245,166,35,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" fill="none" stroke="#F5A623" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+        </div>
+        <h3 class="project-title mb-2">ESP32 Smart Environment Monitor</h3>
+        <p style="font-size:0.83rem;color:#8888A8;line-height:1.5;margin-bottom:16px;">IoT sensor system for real-time environmental data collection and visualization.</p>
+        <div class="flex flex-wrap gap-1">
+          <span class="tech-chip">ESP32</span>
+          <span class="tech-chip">DHT22</span>
+          <span class="tech-chip">MQTT</span>
+          <span class="tech-chip">Node-RED</span>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card p-6" onclick="openModal(4)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+          <div class="project-num">05</div>
+          <div style="width:36px;height:36px;background:rgba(79,142,247,0.08);border:1px solid rgba(79,142,247,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" fill="none" stroke="#4F8EF7" stroke-width="1.5" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+        </div>
+        <h3 class="project-title mb-2">Scholarship Smart Contract</h3>
+        <p style="font-size:0.83rem;color:#8888A8;line-height:1.5;margin-bottom:16px;">Ethereum smart contract for on-chain scholarship record management and validation.</p>
+        <div class="flex flex-wrap gap-1">
+          <span class="tech-chip">Solidity</span>
+          <span class="tech-chip">MetaMask</span>
+          <span class="tech-chip">Remix IDE</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EDUCATION ===================== -->
+<section id="education" class="py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="fade-in grid md:grid-cols-3 gap-12 items-start">
+      <div>
+        <div class="section-label">Academic Background</div>
+        <h2 class="section-title">Education</h2>
+      </div>
+      <div class="md:col-span-2">
+        <div class="card p-8">
+          <div style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;">
+            <div style="width:52px;height:52px;background:rgba(79,142,247,0.1);border:1px solid rgba(79,142,247,0.25);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="24" height="24" fill="none" stroke="#4F8EF7" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <div class="flex-1">
+              <h3 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.15rem;color:#F0F0F8;letter-spacing:-0.01em;">B.Eng. in Computer Engineering</h3>
+              <p style="color:#4F8EF7;font-family:'DM Mono',monospace;font-size:0.85rem;margin-top:3px;">Suranaree University of Technology</p>
+              <div style="display:flex;gap:16px;margin-top:10px;flex-wrap:wrap;">
+                <div class="tag">2022 – Present</div>
+                <div style="display:flex;align-items:center;gap:6px;">
+                  <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#F0F0F8;">3.36</span>
+                  <span style="font-family:'DM Mono',monospace;font-size:0.7rem;color:#8888A8;text-transform:uppercase;letter-spacing:0.08em;">GPA / 4.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:20px;padding-top:20px;border-top:1px solid #2A2A38;">
+            <div class="section-label mb-3">Relevant Coursework</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;">
+              <span class="skill-pill">Database Systems</span>
+              <span class="skill-pill">Operating Systems</span>
+              <span class="skill-pill">Computer Networks</span>
+              <span class="skill-pill">Microprocessors</span>
+              <span class="skill-pill">Software Engineering</span>
+              <span class="skill-pill">Object-Oriented Technology</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" class="py-24" style="background:rgba(19,19,26,0.6);">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="fade-in text-center mb-14">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">Contact</h2>
+      <p class="text-body text-sm mt-3 font-dm max-w-md mx-auto" style="font-weight:300;">I'm open to entry-level AI engineering roles and internship opportunities. Feel free to reach out.</p>
+    </div>
+    <div class="fade-in grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-3xl mx-auto">
+      <a href="mailto:jidapa.pankam1@gmail.com" class="contact-item">
+        <div class="contact-icon">
+          <svg width="18" height="18" fill="none" stroke="#4F8EF7" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:#8888A8;text-transform:uppercase;margin-bottom:2px;">Email</div>
+          <div style="font-size:0.82rem;color:#C4C4D8;">jidapa.pankam1<br/>@gmail.com</div>
         </div>
       </a>
-
-      <!-- Card 2: Work Order -->
-      <a class="project-card" href="project-workorder.html">
-        <div class="card-img-wrap">
-          <img src="images/workorder.png" alt="Work Order App" />
-          <div class="card-img-overlay"></div>
-          <span class="card-tag">AppSheet · Looker Studio</span>
+      <a href="tel:0970306427" class="contact-item">
+        <div class="contact-icon">
+          <svg width="18" height="18" fill="none" stroke="#4F8EF7" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12 19.79 19.79 0 01.88 3.4 2 2 0 012.86 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
         </div>
-        <div class="card-body">
-          <div class="card-title-row">
-            <h3 class="card-title">Work Order Management Application</h3>
-            <div class="card-meta">Internal · Machinery Engineering</div>
-          </div>
-          <p class="card-desc">
-            AppSheet-based workflow application for internal work order management in the Machinery Engineering Department. Focused on workflow visibility, task tracking, and reporting dashboards built with Looker Studio.
-          </p>
-          <div class="card-tech">
-            <span class="tech">AppSheet</span>
-            <span class="tech">Looker Studio</span>
-            <span class="tech">Workflow Management</span>
-          </div>
+        <div>
+          <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:#8888A8;text-transform:uppercase;margin-bottom:2px;">Phone</div>
+          <div style="font-size:0.82rem;color:#C4C4D8;">097-030-6427</div>
         </div>
       </a>
-    </div>  
-
-    <h3 class="project-category">University Projects</h3>
-
-    <div class="projects-grid">
-
-      <!-- Card 3: Co-op Platform -->
-      <a class="project-card" href="project-coop-platform.html">
-        <div class="card-img-wrap">
-          <img src="images/coop.jpg" alt="Co-op Platform" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="card-img-placeholder" style="display:none;">
-            <div class="placeholder-icon">Co-op</div>
-          </div>
-          <div class="card-img-overlay"></div>
-          <span class="card-tag">React · Go · MySQL</span>
+      <a href="https://github.com/jidapa21" target="_blank" class="contact-item">
+        <div class="contact-icon">
+          <svg width="18" height="18" fill="#4F8EF7" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
         </div>
-        <div class="card-body">
-          <div class="card-title-row">
-            <h3 class="card-title">Co-op Web Platform</h3>
-            <div class="card-meta">Full-Stack · University</div>
-          </div>
-          <p class="card-desc">
-            Full-stack cooperative education platform built with React frontend and Go backend, MySQL database; designed with Figma and draw.io. Includes REST API development and multi-role workflows for students, supervisors, and advisors.
-          </p>
-          <div class="card-tech">
-            <span class="tech">React</span>
-            <span class="tech">Go</span>
-            <span class="tech">MySQL</span>
-            <span class="tech">Figma / draw.io</span>
-          </div>
+        <div>
+          <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:#8888A8;text-transform:uppercase;margin-bottom:2px;">GitHub</div>
+          <div style="font-size:0.82rem;color:#C4C4D8;">github.com/jidapa21</div>
         </div>
       </a>
-
-      <!-- Card 4: Data Mining -->
-      <a class="project-card" href="project-data-mining.html">
-        <div class="card-img-wrap">
-          <img src="images/datamining.jpg" alt="Data Mining" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="card-img-placeholder" style="display:none;">
-            <div class="placeholder-icon">Data</div>
-          </div>
-          <div class="card-img-overlay"></div>
-          <span class="card-tag">Association Rules · Academic</span>
-        </div>
-        <div class="card-body">
-          <div class="card-title-row">
-            <h3 class="card-title">Data Mining — Association Rule Analysis</h3>
-            <div class="card-meta">Academic · Coursework</div>
-          </div>
-          <p class="card-desc">
-            Academic project applying association rule mining to structured datasets to discover co-occurrence patterns and actionable insights for industrial datasets.
-          </p>
-          <div class="card-tech">
-            <span class="tech">Association Rules</span>
-            <span class="tech">Python / pandas</span>
-            <span class="tech">EDA & Visualization</span>
-          </div>
-        </div>
-      </a>
-
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="section-divider"></div>
+<!-- ===================== FOOTER ===================== -->
+<footer style="border-top:1px solid #1A1A24;padding:32px 24px;">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+    <span style="font-family:'Syne',sans-serif;font-weight:700;color:#F0F0F8;font-size:0.9rem;">Jidapa Pankam<span style="color:#4F8EF7;">.</span></span>
+    <span style="font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.06em;color:#4A4A62;">AI Engineer — Suranaree University of Technology</span>
+    <span style="font-family:'DM Mono',monospace;font-size:0.68rem;color:#4A4A62;">© 2025</span>
+  </div>
+</footer>
 
-  <!-- ═══════════════ EXPERIENCE ═══════════════ -->
-  <section id="experience" class="section">
-    <div class="section-header">
-      <span class="section-label">// background</span>
-      <h2 class="section-title">Experience &amp; Education</h2>
+<!-- ===================== MODAL ===================== -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal-box" id="modalBox">
+    <div class="modal-header">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
+        <div>
+          <div class="modal-section-title" id="modalNum"></div>
+          <h2 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.4rem;color:#F0F0F8;letter-spacing:-0.02em;line-height:1.2;" id="modalTitle"></h2>
+        </div>
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">
+          <svg width="16" height="16" fill="none" stroke="#8888A8" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:6px;" id="modalTechs"></div>
     </div>
+    <div style="padding:28px 32px;" id="modalBody"></div>
+  </div>
+</div>
 
-    <div class="experience-grid">
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+  // Project data
+  const projects = [
+    {
+      num: "Project 01",
+      title: "Industrial Object Detection System",
+      techs: ["CiRA CORE", "Python", "SQL Server Express", "Grafana"],
+      overview: "Implemented real-time object detection on manufacturing production lines to automate product counting and anomaly detection. The system integrates with existing factory infrastructure to provide actionable quality metrics and reduce manual inspection overhead.",
+      did: [
+        "Configured and deployed CiRA CORE detection pipelines for live production line monitoring",
+        "Tuned confidence thresholds to minimize false positives while maintaining detection accuracy",
+        "Validated AI output results against production data and QA standards",
+        "Integrated detection results into SQL Server Express database for historical tracking",
+        "Built real-time Grafana monitoring dashboards for production visibility"
+      ],
+      learned: [
+        "Industrial AI deployment presents unique challenges including lighting variability and camera calibration",
+        "Model validation in real-world manufacturing environments requires close alignment with QA teams",
+        "Effective integration of AI systems with legacy factory infrastructure demands robust data pipelines"
+      ]
+    },
+    {
+      num: "Project 02",
+      title: "Work Order Management System",
+      techs: ["AppSheet", "SQL Server Express"],
+      overview: "Designed and deployed an internal workflow automation system for the Machinery Engineering department at NIC to track maintenance tasks, digitalize work orders, and improve operational transparency across the production floor.",
+      did: [
+        "Designed relational database schema aligned with departmental workflow requirements",
+        "Built a role-based task management system supporting engineers, supervisors, and technicians",
+        "Automated task assignment, status tracking, and completion visibility",
+        "Replaced paper-based processes with a fully digital, queryable system"
+      ],
+      learned: [
+        "Business process mapping is essential before building any automation — understanding the workflow is half the battle",
+        "Enterprise workflow automation with low-code tools like AppSheet can deliver significant value quickly",
+        "Stakeholder buy-in and user experience design matter as much as technical implementation in internal tools"
+      ]
+    },
+    {
+      num: "Project 03",
+      title: "CoopMatch – Internship Matching Platform",
+      techs: ["React", "Go", "TypeScript", "SQL", "REST API"],
+      overview: "Built a full-stack internship coordination platform connecting university students, partner companies, and administrators. The platform streamlines the matching process, tracks application status, and centralizes communication between all stakeholders.",
+      did: [
+        "Designed normalized database schema to support multi-role relationships between students, companies, and admins",
+        "Built RESTful APIs in Go to handle authentication, matching logic, and data retrieval",
+        "Developed a responsive admin dashboard in React with TypeScript for managing placements",
+        "Implemented user authentication with role-based access control and secure session management"
+      ],
+      learned: [
+        "Full-stack architecture decisions have long-term consequences — choosing Go for the backend provided excellent concurrency for API handling",
+        "Clean API design principles including versioning, consistent error responses, and documentation are critical for team collaboration",
+        "Agile team collaboration requires clear task ownership, regular syncs, and a shared understanding of acceptance criteria"
+      ]
+    },
+    {
+      num: "Project 04",
+      title: "ESP32 Smart Environment Monitor",
+      techs: ["ESP32", "DHT22", "MQTT", "Node-RED"],
+      overview: "Developed a complete IoT monitoring system using ESP32 microcontrollers and DHT22 sensors to capture temperature and humidity data, transmit readings to a central MQTT broker, and visualize trends in real time via a Node-RED dashboard with threshold-based alerting.",
+      did: [
+        "Programmed ESP32 in C++ to read DHT22 sensor data at configurable intervals",
+        "Implemented MQTT publish/subscribe communication to a central broker",
+        "Built real-time visualization dashboards in Node-RED with live charts and gauges",
+        "Created alert logic to trigger notifications when readings exceed defined thresholds"
+      ],
+      learned: [
+        "IoT architecture design requires careful consideration of power, connectivity, and data latency trade-offs",
+        "Edge device communication via MQTT is lightweight and reliable for sensor-to-broker data flows",
+        "Real-time data visualization requires thoughtful UX to convey trends without overwhelming the operator"
+      ]
+    },
+    {
+      num: "Project 05",
+      title: "Scholarship Smart Contract",
+      techs: ["Solidity", "MetaMask", "Remix IDE"],
+      overview: "Developed an Ethereum smart contract to manage scholarship records on-chain, providing transparent, tamper-resistant storage and retrieval of scholarship data with built-in payment validation and event logging.",
+      did: [
+        "Designed smart contract structure with appropriate data types and mappings for scholarship records",
+        "Implemented storage and retrieval functions with access control for authorized administrators",
+        "Added ETH payment validation logic to confirm funding conditions before contract execution",
+        "Integrated event logging to emit transaction history for off-chain indexing and auditing"
+      ],
+      learned: [
+        "Blockchain fundamentals — the trade-offs between on-chain storage costs, gas optimization, and data permanence",
+        "Smart contract design requires thinking about security edge cases like reentrancy and integer overflow from the start",
+        "Decentralized data storage offers unique advantages in trust and auditability for high-stakes records like financial awards"
+      ]
+    }
+  ];
 
-      <!-- Work Experience -->
-      <div class="exp-card">
-        <div class="exp-type">Work Experience</div>
-        <div class="exp-role">AI &amp; Industrial Automation Intern</div>
-        <div class="exp-company">The Nawaloha Industry Co., Ltd.</div>
-        <div class="exp-period">Oct 2025 – Jan 2026</div>
-        <ul class="exp-list">
-          <li>Developed Work Order Management Application for manufacturing operations</li>
-          <li>Implemented ML-based Object Detection for quality assurance</li>
-          <li>Performed confidence threshold tuning for detection accuracy</li>
-          <li>Designed and deployed Grafana dashboards for real-time monitoring</li>
-          <li>Integrated industrial data pipelines via MQTT and Node-RED</li>
-          <li>Conducted AI validation for quality assurance processes</li>
+  function openModal(index) {
+    const p = projects[index];
+    document.getElementById('modalNum').textContent = p.num;
+    document.getElementById('modalTitle').textContent = p.title;
+
+    const techsEl = document.getElementById('modalTechs');
+    techsEl.innerHTML = p.techs.map(t =>
+      `<span class="tech-chip">${t}</span>`
+    ).join('');
+
+    const bodyEl = document.getElementById('modalBody');
+    bodyEl.innerHTML = `
+      <div style="margin-bottom:24px;">
+        <div class="modal-section-title">Overview</div>
+        <p style="color:#C4C4D8;font-size:0.9rem;line-height:1.7;font-weight:300;">${p.overview}</p>
+      </div>
+      <div style="margin-bottom:24px;">
+        <div class="modal-section-title">What I Did</div>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;">
+          ${p.did.map(d => `
+            <li style="display:flex;gap:10px;font-size:0.87rem;color:#C4C4D8;line-height:1.6;">
+              <span style="color:#4F8EF7;flex-shrink:0;font-family:'DM Mono',monospace;">▸</span>
+              ${d}
+            </li>
+          `).join('')}
         </ul>
       </div>
-
-      <!-- Education -->
-      <div class="exp-card">
-        <div class="exp-type">Education</div>
-        <div class="exp-role">Bachelor of Engineering</div>
-        <div class="exp-company">Computer Engineering</div>
-        <div class="exp-period">Suranaree University of Technology</div>
-        <ul class="exp-list">
-          <li>Specialization in AI, Machine Learning, and Software Engineering</li>
-          <li>Coursework in Computer Vision, Data Mining, and Industrial Systems</li>
-          <li>Hands-on projects in Agile/Scrum development methodologies</li>
-          <li>Co-op education program with industry placement</li>
+      <div style="padding-top:20px;border-top:1px solid #2A2A38;">
+        <div class="modal-section-title">What I Learned</div>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;">
+          ${p.learned.map(l => `
+            <li style="display:flex;gap:10px;font-size:0.87rem;color:#C4C4D8;line-height:1.6;">
+              <span style="color:#3ED8C3;flex-shrink:0;font-family:'DM Mono',monospace;">◆</span>
+              ${l}
+            </li>
+          `).join('')}
         </ul>
-        <div class="edu-gpa">⭐ GPA 3.36 / 4.00</div>
       </div>
+    `;
 
-    </div>
-  </section>
+    document.getElementById('modalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
 
-  <!-- ═══════════════ CONTACT ═══════════════ -->
-  <section id="contact" class="contact-section">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <span class="section-label">// contact</span>
-      <h2 class="section-title">Let's Build Something</h2>
-      <p class="contact-subtitle">
-        Open to AI/ML engineering roles, industrial automation projects, and research collaborations.
-      </p>
-      <div class="contact-links">
-        <a href="mailto:jidapa.pankam1@gmail.com" class="contact-link">
-          <span>✉</span> Email Me
-        </a>
-        <a href="https://github.com/jidapa21" target="_blank" rel="noopener" class="contact-link">
-          <span>⌥</span> GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/jidapa-pankam-6157583a9 " target="_blank" rel="noopener" class="contact-link">
-          <span>in</span> LinkedIn
-        </a>
-      </div>
-    </div>
-  </section>
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
 
-  <!-- ═══════════════ FOOTER ═══════════════ -->
-  <footer class="site-footer">
-    <p class="footer-text">
-      © 2026 Jidapa Pankam — Deployed on <span>GitHub Pages</span> · Built with precision &amp; ☕
-    </p>
-  </footer>
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+  }
 
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // Mobile menu
+  document.getElementById('menu-btn').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  });
+  function closeMobile() {
+    document.getElementById('mobile-menu').classList.remove('open');
+  }
+
+  // Intersection observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
